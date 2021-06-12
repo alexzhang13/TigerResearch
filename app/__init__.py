@@ -1,46 +1,21 @@
 from flask import Flask
+from flask_cors import CORS
+from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from config import Config
 
 app = Flask(__name__)
+app.config.from_object(Config)
+app.jinja_env.auto_reload = True
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
-# Setup the app with the config.py file
-app.config.from_object('app.config')
-
-# Setup the logger
-from app.logger_setup import logger
-
-# Setup the database
-from flask.ext.sqlalchemy import SQLAlchemy
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
-# Setup the mail server
-from flask.ext.mail import Mail
-mail = Mail(app)
+CORS(app)
+Bootstrap(app)
 
-# Setup the debug toolbar
-from flask_debugtoolbar import DebugToolbarExtension
-app.config['DEBUG_TB_TEMPLATE_EDITOR_ENABLED'] = True
-app.config['DEBUG_TB_PROFILER_ENABLED'] = True
-toolbar = DebugToolbarExtension(app)
+from app import routes, models
 
-# Setup the password crypting
-from flask.ext.bcrypt import Bcrypt
-bcrypt = Bcrypt(app)
-
-# Import the views
-from app.views import main, user, error
-app.register_blueprint(user.userbp)
-
-# Setup the user login process
-from flask.ext.login import LoginManager
-from app.models import User
-
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'userbp.signin'
-
-
-@login_manager.user_loader
-def load_user(email):
-    return User.query.filter(User.email == email).first()
-
-from app import admin

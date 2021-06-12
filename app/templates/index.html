@@ -1,15 +1,33 @@
-{% extends "layout.html" %}
-
-{% block head %}
-    {{ super() }}
-{% endblock %}
+{% extends "base.html" %}
 
 {% block content %}
-
-	<h1 class="ui header">{{ title }}</h1>
-
-	{% if current_user.is_authenticated %}
-	  	<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
-	{% endif %}
-
+    <div id="search-bar">
+        <div><input type="search" id="search1"
+                style="width:500px;padding:4px;margin:-2px;margin-right:4px;margin-left:0px;height:42px;"
+                placeholder="Search" aria-label="Search"><button class="btn btn-default" type="button">Search </button>
+        </div>
+    </div>
+    <div>
+        <div class="container" style="height:430px;">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <h2>Quick Check</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-lg-offset-0 col-md-4"><button class="btn btn-default" type="button"
+                        style="width:470px;">Professor %1%</button></div>
+                <div class="col-md-4">
+                    <h1>Professor %x%</h1>
+                    <h3>Email: %x%</h3>
+                    <h3>Department: %x%</h3>
+                    <p>Keywords: %x%</p>
+                    <p>Summary: %x%</p>
+                    <p>Website Link: <a href="#">Link</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

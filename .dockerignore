@@ -1,5 +1,0 @@
-*.db
-*.log
-*.pyc
-.git/
-config.py
