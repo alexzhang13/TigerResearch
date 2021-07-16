@@ -18,9 +18,29 @@ class User(db.Model):
 
 
 class Professor (db.Model):
+    
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
-    # TODO: research interests, recent work, etc.
+    department = db.Column(db.String(64))
+    email = db.Column(db.String(120))
+    website = db.Column(db.String(120))
+    keywords = db.Column(db.String(120))
+    room = db.Column(db.String(64))
+    advising = db.Column(db.Boolean, default=True)
 
     def __repr__(self):
-        return '<Prof {}>'.format(self.name)
+        return '<Professor {}>'.format(self.name)
+    
+    @property
+    def serialize(self):
+       """Return object data in easily serializable format"""
+       return {
+           'id': self.id,
+           'name': self.name,
+           'department': self.department,
+           'email': self.email,
+           'website': self.website,
+           'keywords': self.keywords,
+           'room': self.room,
+           'advising': self.advising
+       }

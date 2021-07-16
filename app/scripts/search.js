@@ -6,3 +6,9 @@ $(document).ready(function () {
         });
     });
 });
+
+// show up on right
+$('#myList a').on('click', function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+})
