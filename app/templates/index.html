@@ -47,7 +47,7 @@
                         <h3 class="panel-title">List of Professors</h3>
                     </div>
                     <div class="panel-body">
-                        <div id="search-results" class="list-group list-group-flush border-bottom scrollarea flex-item-scroll">
+                        <div id="search-results" class="list-group list-group-flush border-bottom scrollarea flex-item-scroll" role="tablist">
                             
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                 url:"/livesearch",
                 data:{text: search_text},
                 success:function(res) {
-                    data = "<div class=\"list-group\" id=\"list-tab\" role=\"tablist\">"
+                    data = ""
                     data_box = ""
 
                     /* note the outer loop is the entire array (it only has one element); may fix this later */
@@ -128,7 +128,6 @@
                             "</div>"
                         });
                     });
-                    data += "</div>"
 
                     $("#search-results").html(data)
                     $("#display-info").html(data_box)
