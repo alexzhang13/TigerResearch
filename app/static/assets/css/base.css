@@ -102,6 +102,13 @@ background:orange;
 	text-transform:none;
 }
 
+.scrollable {
+  height: 400px; 
+  overflow:scroll;
+  overflow-y:auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .list-group{
 	min-height: 300px;
     max-height: 380px;
