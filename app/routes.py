@@ -22,9 +22,14 @@ def login():
 @app.route("/livesearch", methods=["GET", "POST"])
 def live_search():
     searchbox = request.form.get("text")
-    res = models.Professor.query.filter_by(name=searchbox).all()
-    res = models.Professor.query.all()
+    res = models.Professor.query.filter_by(department=searchbox).all()
     return jsonify(json_list=[i.serialize for i in res])
+
+@app.route("/displayinfo", methods=["GET", "POST"])
+def display_info():
+    id = request.form.get("id")
+    res = models.Professor.query.filter_by(id=id).first()
+    return jsonify(res.serialize)
 
 def Convert(lst):
     resultproxy = lst
