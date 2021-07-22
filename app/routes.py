@@ -5,12 +5,11 @@ import json
 from app import app
 from app.models import models
 
+import app.utils as utils
+
 @app.route("/", methods=["GET", "POST"])
 def index():
-    categories = [
-        {'dep: COS'},
-        {'dep:ORF'}
-    ]
+    categories = utils.listify_file('app/static/assets/files/courses.txt')
     return render_template("index.html", title='TigerResearch', categories=categories)
 
 # TODO: Add login page
@@ -18,6 +17,12 @@ def index():
 def login():
     # form = LoginForm()
     return render_template("index.html", title='Log In')
+
+# TODO: Add login page
+@app.route("/map")
+def map():
+    # form = LoginForm()
+    return render_template("map.html", title='Map')
 
 @app.route("/livesearch", methods=["GET", "POST"])
 def live_search():

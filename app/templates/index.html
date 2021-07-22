@@ -15,28 +15,19 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Filters</h3>
                     </div>
-                        <button data-toggle="collapse" data-target="#filters">Course Filters</button>
-                    <div class="panel-body" height="100%">
-                        <div id="filters" class="collapse">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    COS
-                                </label>
+                    <div class="panel-body list-group list-group-flush border-bottom scrollarea flex-item-scroll" id="filterlist">
+                        {% for cat in categories %}
+                            <button class="btn-block" data-toggle="collapse" data-target="#filters_{{ cat }}"> {{ cat }} <span
+                                    class="glyphicon glyphicon-menu-down"></span> </button>
+                            <div id="filters_{{ cat }}" class="collapse">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Test Subcategory
+                                    </label>
+                                </div>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    ORF
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    ECO
-                                </label>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

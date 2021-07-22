@@ -6,7 +6,7 @@ function search_click(id) {
         data: { id: id },
         success: function (value) {
             data = "<div class=\"panel-body\" id=\"display-prof-" + value.id + "\">" +
-                "<center> <h2> <span style=\"color:gray\">Professor</span> " + value.name + "</h2> </center>" +
+                "<center> <h2> " + value.name + "</h2> </center>" +
                 "<div style=\"text-align: center\" class=\"h5 font-weight-300\">" + value.keywords + "</div>" +
                 "<table class=\"table table-hover table-sm table-properties\">" +
                 "<tr v-show=\"department\">" +
