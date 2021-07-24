@@ -12,3 +12,9 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['alzhang@princeton.edu']
+    MAPBOX_KEY = os.environ.get('MAPBOX_KEY')
+    TEMPLATES_AUTO_RELOAD = True
+    JSONIFY_PRETTYPRINT_REGULAR = True
+    CAS_SERVER = "ldap.cs.princeton.edu"
+    CAS_AFTER_LOGIN = 'route_root'
+    MAPBOX_KEY = 'k.eyJ1IjoiYWx6aGFuZyIsImEiOiJja3JlYjdtYTk1a3pxMnRsMzU5cWZhbHpiIn0.uRUI-RC-5ebGhcKzC8bx2A'

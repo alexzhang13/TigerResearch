@@ -1,5 +1,10 @@
 from app import db
+from app.models.search import TSVector
 from werkzeug.security import generate_password_hash, check_password_hash
+
+def to_tsvector_ix(*columns):
+    cols = " || ' ' || ".join(columns)
+    return "to_tsvector('english', " + cols
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,7 +23,6 @@ class User(db.Model):
 
 
 class Professor (db.Model):
-    
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
     department = db.Column(db.String(64))
@@ -27,6 +31,13 @@ class Professor (db.Model):
     keywords = db.Column(db.String(120))
     room = db.Column(db.String(64))
     advising = db.Column(db.Boolean, default=True)
+
+    __ts_vector__ = db.Column(TSVector(),db.Computed(
+         to_tsvector_ix('name', 'department', 'email', 'keywords'),
+         persisted=True))
+         
+    __table_args__ = (db.Index('ix_profs___ts_vector__',
+          __ts_vector__, postgresql_using='gin'),)
 
     def __repr__(self):
         return '<Professor {}>'.format(self.name)
