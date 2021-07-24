@@ -1,4 +1,5 @@
 from flask import render_template, flash, redirect, url_for, request, jsonify
+from sqlalchemy import or_
 import json
 
 from app.main import bp
@@ -26,13 +27,17 @@ def map():
 @bp.route("/livesearch", methods=["GET", "POST"])
 def live_search():
     searchbox = request.form.get("text")
-    res = models.Professor.query.filter(models.Professor.__ts_vector__.match(searchbox)).all()
+    # res = models.Professor.query.filter(models.Professor.__ts_vector__.match(searchbox)).all()
+    query = models.Professor.query
+    query = query.filter(or_(*utils.get_filters(searchbox)))
+    res = query.all()
+    
     return jsonify(json_list=[i.serialize for i in res])
 
 @bp.route("/displayinfo", methods=["GET", "POST"])
 def display_info():
     id = request.form.get("id")
-    res = models.Professor.query.filter_by(id=id).first()
+    res = models.Professor.query.filter_by(netid=id).first()
     return jsonify(res.serialize)
 
 def Convert(lst):

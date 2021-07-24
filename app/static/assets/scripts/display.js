@@ -5,7 +5,7 @@ function search_click(id) {
         url: "/displayinfo",
         data: { id: id },
         success: function (value) {
-            data = "<div class=\"panel-body\" id=\"display-prof-" + value.id + "\">" +
+            data = "<div class=\"panel-body\" id=\"display-prof-" + value.netid + "\">" +
                 "<center> <h2> " + value.name + "</h2> </center>" +
                 "<div style=\"text-align: center\" class=\"h5 font-weight-300\">" + value.keywords + "</div>" +
                 "<table class=\"table table-hover table-sm table-properties\">" +
@@ -33,7 +33,6 @@ function search_click(id) {
                 "    <li class=\"list-group-item\">Default 3</li>" +
                 "</ul>" +
                 "</div>"
-            console.log(data);
             $("#display-info").html(data)
         }
     })

@@ -27,25 +27,22 @@ bootstrap = Bootstrap()
 cas = CAS()
 cors = CORS()
 
-def init_db(my_db, my_app):
-    with my_app.app_context():
-        my_db.drop_all()
-        my_db.create_all()
+def init_db(app):
+    with app.app_context():
+        db.drop_all()
+        db.create_all()
 
-        with open('db2.csv', newline='') as csvfile:
+        with open('cos_dep.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                if row['advising'] == "N":
-                    advising = False
-                else:
-                    advising = True
-                
-                p = Professor(id=row['id'], name=row['name'], department=row['department'], 
-                email=row['email'], website=row['website'], keywords=row['keywords'], 
-                room=row['room'], advising=advising)
+                if (len(row['availability']) == 0): advising = True
+                elif (row['availability'][0] == 'N' or row['availability'][0] == 'n'): advising = False
+                else: advising = True
+                p = Professor(netid=row['netid'], name=row['name'], department=row['department'], 
+                email=row['email'], research_interests=row['research-interests'], advising=advising)
 
-                my_db.session.add(p)
-            my_db.session.commit()
+                db.session.add(p)
+            db.session.commit()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -62,8 +59,6 @@ def create_app(config_class=Config):
     app.register_blueprint(errors_bp)
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
-
-    init_db(db, app)
 
     if not app.debug:
         if app.config['MAIL_SERVER']:
