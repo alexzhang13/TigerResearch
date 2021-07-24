@@ -1,1 +1,1 @@
-web: flask db upgrade; gunicorn tigerresearch:app
+web: flask db upgrade; gunicorn run:app
