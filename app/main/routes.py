@@ -11,14 +11,14 @@ from cas import CASClient
 cas_client = CASClient(
     version=3,
     service_url='http://localhost:5000/login?next=%2Fprofile',
-    server_url='https://signon.cs.princeton.edu/'
+    server_url='https://fed.princeton.edu/cas/login'
 )
 
 @bp.route("/", methods=["GET", "POST"])
 def index():
-    categories = utils.listify_file('app/static/assets/files/courses.txt')
     if 'username' in session:
-        return render_template("index.html", title='TigerResearch', categories=categories)
+        categories = utils.listify_file('app/static/assets/files/courses.txt')
+        return render_template("index.html", title='TigerResearch', categories=categories, user=session['username'])
     return redirect(url_for('main.login'))
 
 # TODO: Add login page
@@ -50,11 +50,17 @@ def login():
         return 'Failed to verify ticket. <a href="/login">Login</a>'
     else:  # Login successfully, redirect according `next` query parameter.
         session['username'] = user
-        return redirect(next)
+        return redirect(url_for('main.index'))
+
+@bp.route('/profile')
+def profile(method=['GET']):
+    if 'username' in session:
+        return 'Logged in as %s. <a href="/logout">Logout</a>' % session['username']
+    return 'Login required. <a href="/login">Login</a>', 403
 
 @bp.route("/logout")
 def logout():
-    redirect_url = url_for('logout_callback', _external=True)
+    redirect_url = url_for('main.logout_callback', _external=True)
     cas_logout_url = cas_client.get_logout_url(redirect_url)
     current_app.logger.debug('CAS logout URL: %s', cas_logout_url)
 
