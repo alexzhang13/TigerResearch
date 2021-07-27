@@ -15,8 +15,8 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Filters</h3>
                     </div>
-                    <div class="panel-body">
-                        <div class="list-group list-group-filter border-bottom scrollarea flex-item-scroll" id="filterlist">
+                    <div class="panel-body scrollable">
+                        <div class="list-group list-group-filter scrollable" id="filterlist">
                             {% for cat in categories %}
                                 {% set catvar = cat.split('  ') %}
                                 <li class="list-group-item suggest-result flex-container-row">
@@ -35,8 +35,8 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">List of Professors</h3>
                     </div>
-                    <div class="panel-body">
-                        <div id="search-results" class="list-group list-group-search list-group-flush border-bottom scrollarea flex-item-scroll" role="tablist">
+                    <div class="panel-body scrollable">
+                        <div id="search-results" class="list-group list-group-search" role="tablist">
                             
                         </div>
                     </div>

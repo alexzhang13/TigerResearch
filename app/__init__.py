@@ -3,7 +3,6 @@ from flask_cors import CORS
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_cas import CAS
 from config import Config
 import logging
 from logging.handlers import SMTPHandler
@@ -24,7 +23,6 @@ app.config['MYSQL_CURSORCLASS] = "DictCursor"
 db = SQLAlchemy()
 migrate = Migrate()
 bootstrap = Bootstrap()
-cas = CAS()
 cors = CORS()
 
 def init_db(app):
@@ -46,12 +44,12 @@ def init_db(app):
 
 def create_app(config_class=Config):
     app = Flask(__name__)
+    app.config['SQLALCHEMY_ECHO'] = True
     app.config.from_object(config_class)
     app.jinja_env.auto_reload = True
     
     db.init_app(app)
     migrate.init_app(app, db)
-    cas.init_app(app)
     cors.init_app(app)
     bootstrap.init_app(app)
 

@@ -31,6 +31,7 @@ class Professor (db.Model):
 
     name = db.Column(db.String(64), index=True, default="")
     netid = db.Column(db.String(64), primary_key=True)
+    rating = db.Column(db.Integer(), default=0)
     department = db.Column(db.String(64), default="")
     type = db.Column(db.String(64), default="")
     email = db.Column(db.String(120), default="")

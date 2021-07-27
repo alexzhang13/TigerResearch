@@ -59,3 +59,8 @@ Werkzeug==2.0.1
 WTForms==2.1
 xmltodict==0.12.0
 zipp==3.5.0
+charset-normalizer==2.0.3
+idna==3.2
+lxml==4.6.3
+python-cas==1.5.0
+requests==2.26.0
