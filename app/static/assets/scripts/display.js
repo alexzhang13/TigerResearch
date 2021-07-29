@@ -33,6 +33,7 @@ function search_click(id) {
                 "    <li class=\"list-group-item\">Default 3</li>" +
                 "</ul>" +
                 "</div>"
+            window.history.pushState("/professor/" + value.netid, "", "/professor/" + value.netid);
             $("#display-info").html(data)
         }
     })

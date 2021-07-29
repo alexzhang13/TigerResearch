@@ -116,6 +116,17 @@ a.list-group-item, button.list-group-item {
   -webkit-overflow-scrolling: touch;
 }
 
+.list-group-filter .list-group-item {
+  background-color: #f1f9fb;
+  border-top: 1px solid #000000;
+  border-left-color: rgb(0, 0, 0);
+  border-right-color: rgb(0, 0, 0);
+}
+
+.list-group-filter .list-group-item:hover {
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+}
+
 .list-group-search{
 	height:100%;
 }
@@ -163,17 +174,6 @@ cursor: pointer;
   border: 1px solid rgb(0, 0, 0);
 }
 
-.list-group-filter .list-group-item {
-  background-color: #f1f9fb;
-  border-top: 1px solid #000000;
-  border-left-color: rgb(0, 0, 0);
-  border-right-color: rgb(0, 0, 0);
-}
-
-.list-group-filter .list-group-item:hover {
-  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
-}
-
 .navbar-default {
 background-color: #ee7f2d;
 border-color: #ee7f2d;
@@ -185,4 +185,8 @@ border-color: #ee7f2d;
   border-radius: 6px;
   background-color: #ee7f2d;
   border-color:rgb(255, 255, 255);
+}
+
+.navbar-default .navbar-brand:hover {
+  cursor: pointer;
 }

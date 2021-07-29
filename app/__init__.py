@@ -3,6 +3,7 @@ from flask_cors import CORS
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import LoginManager
 from config import Config
 import logging
 from logging.handlers import SMTPHandler
@@ -24,6 +25,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 bootstrap = Bootstrap()
 cors = CORS()
+login = LoginManager()
 
 def init_db(app):
     with app.app_context():
@@ -52,11 +54,15 @@ def create_app(config_class=Config):
     migrate.init_app(app, db)
     cors.init_app(app)
     bootstrap.init_app(app)
+    login.init_app(app)
+    login.login_view = 'main.login'
     
     from app.errors import bp as errors_bp
     app.register_blueprint(errors_bp)
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
+    from app.forms import bp as forms_bp
+    app.register_blueprint(forms_bp)
 
     if not app.debug and not app.testing:
         if app.config['MAIL_SERVER']:

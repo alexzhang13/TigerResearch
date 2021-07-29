@@ -1,7 +1,9 @@
 from flask import render_template, flash, redirect, url_for, request, jsonify, session, current_app
+from flask_login import current_user, login_user, logout_user, login_required
 from sqlalchemy import or_
 import json
 
+from app import db
 from app.main import bp
 from app.models import models
 
@@ -14,20 +16,22 @@ cas_client = CASClient(
     server_url='https://fed.princeton.edu/cas/login'
 )
 
+#@login_required
 @bp.route("/", methods=["GET", "POST"])
 def index():
     if 'username' in session:
         categories = utils.listify_file('app/static/assets/files/courses.txt')
-        return render_template("index.html", title='TigerResearch', categories=categories, user=session['username'])
+        return render_template("index.html", title='TigerResearch', categories=categories, 
+        user=session['username'])
     return redirect(url_for('main.login'))
 
 # TODO: Add login page
-@bp.route("/login")
+@bp.route("/login", methods=['GET', 'POST'])
 def login():
     if 'username' in session:
         # Already logged in
         return redirect(url_for('main.index'))
-
+    
     next = request.args.get('next')
     ticket = request.args.get('ticket')
     if not ticket:
@@ -50,6 +54,12 @@ def login():
         return 'Failed to verify ticket. <a href="/login">Login</a>'
     else:  # Login successfully, redirect according `next` query parameter.
         session['username'] = user
+        user_id = models.User.query.filter_by(id=user).first()
+        if user_id is None:
+            user_id = models.User(netid=user, id=user, email=(user + "@princeton.edu"))
+            db.session.add(user_id)
+            db.session.commit()
+        login_user(user_id)
         return redirect(url_for('main.index'))
 
 @bp.route('/profile')
@@ -63,7 +73,7 @@ def logout():
     redirect_url = url_for('main.logout_callback', _external=True)
     cas_logout_url = cas_client.get_logout_url(redirect_url)
     current_app.logger.debug('CAS logout URL: %s', cas_logout_url)
-
+    logout_user()
     return redirect(cas_logout_url)
 
 @bp.route('/logout_callback')
@@ -92,6 +102,16 @@ def display_info():
     id = request.form.get("id")
     res = models.Professor.query.filter_by(netid=id).first()
     return jsonify(res.serialize)
+
+@bp.route('/professor/<netid>')
+def get_product(netid):
+    if 'username' in session:
+        res = models.Professor.query.filter_by(netid=netid).first()
+        categories = utils.listify_file('app/static/assets/files/courses.txt')
+        return render_template("index.html", title='TigerResearch', categories=categories, 
+        user=session['username'], display=res)
+    return redirect(url_for('main.login'))
+
 
 def Convert(lst):
     resultproxy = lst

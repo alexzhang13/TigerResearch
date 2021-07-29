@@ -14,7 +14,7 @@ $(document).ready(function () {
                     $.each(ovalue, function (index, value) {
                         data +=
                             "<a class=\"list-group-item list-group-item-action py-3 lh-tight\" onclick=\"search_click(\'" + value.netid + "\')\" id=\"" + value.netid + "-list" +
-                        "\" data-toggle=\"list\" href=\"#" + value.netid + "\"" +
+                        "\" data-toggle=\"list\" href=\"/professor/" + value.netid + "\"" +
                         "role=\"tab\" aria-controls=\"" + value.netid + "\">" +
                             " <div class=\"d-flex w-100 align-items-center justify-content-between\"> " +
                             " <strong class=\"mb-1\">" + value.name + "</strong> " +

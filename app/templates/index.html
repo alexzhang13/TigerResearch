@@ -49,7 +49,41 @@
                         <h3 class="panel-title">Information</h3>
                     </div>
                     <div id="display-info" class="panel-body scrollable" id="nav-tabContent">
-                        
+                        {% if display is defined %}
+                            <div class="panel-body" id="display-prof-{{ display.netid }}">
+                                <center>
+                                    <h2> {{ display.name }}</h2>
+                                </center>
+                                <div style="text-align: center" class="h5 font-weight-300"> {{ display.keywords }} </div>
+                                <table class="table table-hover table-sm table-properties">
+                                    <tr v-show="department">
+                                        <th>Department: </th>
+                                        <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20rem;">
+                                            {{ display.department }} </td>
+                                    </tr>
+                                    <tr v-show="available">
+                                        <th>Status: </th>
+                                        <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20rem;">Available
+                                            for IW/Thesis Advising</td>
+                                    </tr>
+                                    <tr v-show="email">
+                                        <th>Email</th>
+                                        <td> {{ display.email }}</td>
+                                    </tr>
+                                    <tr v-show="website">
+                                        <th>Website</th>
+                                        <td><a href="# {{ display.website }} "> {{ display.website }} </a></td>
+                                    </tr>
+                                </table>
+                                <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Publications</h5>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Default 1</li>
+                                    <li class="list-group-item">Default 2</li>
+                                    <li class="list-group-item">Default 3</li>
+                                </ul>
+                            </div>
+                        {% else %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

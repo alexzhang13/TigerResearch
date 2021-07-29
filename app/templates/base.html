@@ -37,6 +37,7 @@
     
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="../static/assets/css/styles.min.css">
+    <link href="../static/assets/css/buttons.css" rel="stylesheet" type="text/css">
     <link href="../static/assets/css/base.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -50,8 +51,12 @@
                         class="icon-bar"></span><span class="icon-bar"></span></button></div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav"></ul>
-                <a class="btn btn-primary navbar-btn navbar-right" href="{{ url_for('main.logout') }}">
-                    <strong> {{ user }}</strong></a>
+                <a href="{{ url_for('main.logout') }}">
+                    <div class="button-container-2">
+                        <span class="mas">LOGOUT</span>
+                        <button type="button" name="Hover">{{ user }} </button>
+                    </div>
+                </a>
             </div>
         </div>
     </nav>
