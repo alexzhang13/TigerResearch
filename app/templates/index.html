@@ -15,15 +15,14 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Filters</h3>
                     </div>
-                    <div class="panel-body scrollable">
+                    <div class="filter panel-body scrollable">
                         <div class="list-group list-group-filter scrollable" id="filterlist">
                             {% for cat in categories %}
                                 {% set catvar = cat.split('  ') %}
-                                <li class="list-group-item suggest-result flex-container-row">
-                                    <div data-toggle="tooltip" data-original-title="{{ catvar }}"
-                                    class="flex-item-stretch truncate suggest-text"><strong>{{ catvar[0] }}</strong>&nbsp; {{ catvar[1] }} </div>
-                                    <div class="flex-item-rigid suggest-button active" data-toggle="tooltip" data-original-title="Remove from search" data-placement="right"> </div>
-                                </li>
+                                <button class="button button--winona button--border-thin button--round-s" 
+                                    data-text="Add to search">
+                                    <span> <strong>{{ catvar[0] }}</strong>&nbsp; {{ catvar[1] }} </span>
+                                </button>
                             {% endfor %}
                         </div>
                     </div>
@@ -35,7 +34,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">List of Professors</h3>
                     </div>
-                    <div class="panel-body scrollable">
+                    <div class="display panel-body scrollable">
                         <div id="search-results" class="list-group list-group-search" role="tablist">
                             
                         </div>
@@ -48,9 +47,9 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Information</h3>
                     </div>
-                    <div id="display-info" class="panel-body scrollable" id="nav-tabContent">
+                    <div id="display-info" class="display panel-body scrollable" id="nav-tabContent">
                         {% if display is defined %}
-                            <div class="panel-body" id="display-prof-{{ display.netid }}">
+                            <div class="display panel-body" id="display-prof-{{ display.netid }}">
                                 <center>
                                     <h2> {{ display.name }}</h2>
                                 </center>

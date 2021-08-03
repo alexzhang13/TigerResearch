@@ -40,7 +40,7 @@ def init_db(app):
                 else: advising = True
                 p = Professor(netid=row['netid'], name=row['name'], department=row['department'], 
                 email=row['email'], research_interests=row['research-interests'], advising=advising)
-
+                print(p)
                 db.session.add(p)
             db.session.commit()
 

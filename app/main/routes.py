@@ -62,12 +62,14 @@ def login():
         login_user(user_id)
         return redirect(url_for('main.index'))
 
+@login_required
 @bp.route('/profile')
 def profile(method=['GET']):
     if 'username' in session:
         return 'Logged in as %s. <a href="/logout">Logout</a>' % session['username']
     return 'Login required. <a href="/login">Login</a>', 403
 
+@login_required
 @bp.route("/logout")
 def logout():
     redirect_url = url_for('main.logout_callback', _external=True)
@@ -82,29 +84,32 @@ def logout_callback():
     session.pop('username', None)
     return 'Logged out from CAS. <a href="/login">Login</a>'
 
+@login_required
 @bp.route("/map")
 def map():
     # form = LoginForm()
     return render_template("map.html", title='Map')
 
+@login_required
 @bp.route("/livesearch", methods=["GET", "POST"])
 def live_search():
     searchbox = request.form.get("text")
-    # res = models.Professor.query.filter(models.Professor.__ts_vector__.match(searchbox)).all()
     query = models.Professor.query
     query = query.filter(or_(*utils.get_filters(searchbox)))
     res = query.all()
     
     return jsonify(json_list=[i.serialize for i in res])
 
+@login_required
 @bp.route("/displayinfo", methods=["GET", "POST"])
 def display_info():
     id = request.form.get("id")
     res = models.Professor.query.filter_by(netid=id).first()
     return jsonify(res.serialize)
 
+@login_required
 @bp.route('/professor/<netid>')
-def get_product(netid):
+def get_professor(netid):
     if 'username' in session:
         res = models.Professor.query.filter_by(netid=netid).first()
         categories = utils.listify_file('app/static/assets/files/courses.txt')
@@ -112,6 +117,18 @@ def get_product(netid):
         user=session['username'], display=res)
     return redirect(url_for('main.login'))
 
+
+@bp.route('/like/<prof_id>/<action>')
+@login_required
+def like_action(prof_id, action):
+    prof = models.Professor.query.filter_by(id=prof_id).first_or_404()
+    if action == 'like':
+        current_user.like_prof(prof)
+        db.session.commit()
+    if action == 'unlike':
+        current_user.unlike_prof(prof)
+        db.session.commit()
+    return redirect(request.referrer)
 
 def Convert(lst):
     resultproxy = lst

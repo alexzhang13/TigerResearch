@@ -1,21 +1,44 @@
 from app import db, login
 from flask_login import UserMixin
 
+
+class ProfLike(db.Model):
+    __tablename__ = 'prof_like'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.String(64), db.ForeignKey('user.netid'))
+    prof_id = db.Column(db.String(64), db.ForeignKey('prof.netid'))
+
 class User(UserMixin, db.Model):
     __tablename__ = "user"
     netid = db.Column(db.String(64), primary_key=True)
     id = db.Column(db.String(64))
     email = db.Column(db.String(64))
 
-    # prof_likes = db.relationship('ProfLikes', backref=db.backref('user', lazy='joined'),
-    #                             lazy='dynamic', cascade='all, delete-orphan')
+    likes = db.relationship('ProfLike', foreign_keys='ProfLike.user_id', 
+        backref='user', lazy='dynamic')
+
+    def like_prof(self, prof):
+        if not self.has_liked_prof(prof):
+            like = ProfLike(user_id=self.netid, prof_id=prof.netid)
+            db.session.add(like)
+
+    def unlike_prof(self, prof):
+        if self.has_liked_prof(prof):
+            ProfLike.query.filter_by(
+                user_id=self.netid,
+                prof_id=prof.netid).delete()
+
+    def has_liked_prof(self, prof_netid):
+        return ProfLike.query.filter(
+            ProfLike.user_id == self.netid,
+            ProfLike.prof_id == prof_netid).count() > 0
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
 
 class Professor (db.Model):
-    __tablename__ = "profdb"
+    __tablename__ = "prof"
 
     name = db.Column(db.String(64), index=True, default="")
     netid = db.Column(db.String(64), primary_key=True)
@@ -28,9 +51,8 @@ class Professor (db.Model):
     research_interests = db.Column(db.String(1024), default="")
     room = db.Column(db.String(64), default="")
     advising = db.Column(db.Boolean, default=True)
-    likes = db.Column(db.Integer, default=0)
-    # user_likes = db.relationship('PostLikes', backref=db.backref('post', lazy='joined'),
-    #                             lazy='dynamic', cascade='all, delete-orphan')
+
+    likes = db.relationship('ProfLike', backref='prof', lazy='dynamic')
 
     def __repr__(self):
         return '<Professor {}>'.format(self.netid)
@@ -48,14 +70,11 @@ class Professor (db.Model):
            'keywords': self.keywords,
            'research_interests': self.research_interests,
            'room': self.room,
-           'advising': self.advising
+           'advising': self.advising,
+           'likes': self.likes.count()
        }
-
-
-# likes_table = db.Table('likes',
-#     db.Column('user_id', db.Integer, db.ForeignKey('user.netid')),
-#     db.Column('prof_id', db.Integer, db.ForeignKey('prof.netid'))
-# )
+       
+    
 
 @login.user_loader
 def load_user(netid):

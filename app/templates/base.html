@@ -36,6 +36,7 @@
         
     
     <!-- Custom styles for this template -->
+    <link href="../static/assets/css/filterbuttons.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../static/assets/css/styles.min.css">
     <link href="../static/assets/css/buttons.css" rel="stylesheet" type="text/css">
     <link href="../static/assets/css/base.css" rel="stylesheet" type="text/css">
@@ -44,20 +45,15 @@
 <body style="background-color:rgb(255,255,255);">
     <nav class="navbar navbar-default">
         <div class="container">
-            <div class="navbar-header"><a class="navbar-brand" href="{{ url_for('main.index') }}"
-                    style="font-family:Actor, sans-serif;color:rgb(255,255,255);">TigerResearch</a><button
-                    class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span
-                        class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
-                        class="icon-bar"></span><span class="icon-bar"></span></button></div>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav"></ul>
-                <a href="{{ url_for('main.logout') }}">
-                    <div class="button-container-2">
-                        <span class="mas">LOGOUT</span>
-                        <button type="button" name="Hover">{{ user }} </button>
-                    </div>
-                </a>
+            <div class="navbar-header"><a class="navbar-brand"
+                    style="font-family:Actor, sans-serif;color:rgb(255,255,255);">TigerResearch</a>
             </div>
+           <a href="{{ url_for('main.logout') }}">
+                <div class="button-container-2">
+                    <span class="mas">LOGOUT</span>
+                    <button type="button" name="Hover">{{ user }} </button>
+                </div>
+            </a>
         </div>
     </nav>
     <br>
