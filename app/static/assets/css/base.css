@@ -6,6 +6,18 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif !important;
 }
 
+hfilt {
+  display: inline;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #000000;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-size: 24px;
+}
+
 body { 
   font-family: 'Open Sans', sans-serif !important;
   color: rgb(46, 46, 46);
@@ -232,4 +244,23 @@ overflow: hidden;
 .flex-item-rigid {
 flex-grow: 0;
 flex-shrink: 0;
+}
+
+
+/* buttons */
+.searchbar_filter {
+display: inline-block;
+min-height: 28px;
+line-height: 28px;
+padding: 2px 5px;
+background-color: #68932f;
+border: 2px solid #68932f;
+border-radius: 2px;
+-moz-border-radius: 2px;
+color: #d2ff96;
+font-size: 14px;
+margin-right: 5px;
+margin-bottom: 5px;
+text-decoration: none;
+cursor: pointer;
 }

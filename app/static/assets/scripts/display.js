@@ -1,5 +1,4 @@
 function search_click(id) {
-    console.log(id);
     $.ajax({
         method: "post",
         url: "/displayinfo",
@@ -33,7 +32,8 @@ function search_click(id) {
                 "    <li class=\"list-group-item\">Default 3</li>" +
                 "</ul>" +
                 "</div>"
-            window.history.pushState("/professor/" + value.netid, "", "/professor/" + value.netid);
+            search_text = $("#listSearch").val();
+            window.history.pushState(null, "", "/professor/" + value.netid + "?q=" + search_text);
             $("#display-info").html(data)
         }
     })

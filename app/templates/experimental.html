@@ -3,8 +3,19 @@
 {% block content %}
 <body>
 <div id="search-container" class="container">
-    <input class="form-control" id="listSearch" type="text" maxlength=200 placeholder="Search a Professor or Keyword..." value="{{search}}">
+    <input class="form-control" id="listSearch" type="text" placeholder="Search a Professor or Keyword...">
     <br>
+    <hfilt> Active Filters: </hfilt>
+    <a href="#" class="searchbar_filter"> COS 
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </a>
+    <a href="#" class="searchbar_filter"> ECO 
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </a>
 </div>
 <div>
     <section class="columns">
@@ -19,8 +30,8 @@
                         <div class="list-group list-group-filter scrollable" id="filterlist">
                             {% for cat in categories %}
                                 {% set catvar = cat.split('  ') %}
-                                <button id="{{ catvar[0] }}" class="button button--winona button--border-thin button--round-s" 
-                                    data-text="Add to search" onclick="filter_click({{ catvar[0] }})">
+                                <button class="button button--winona button--border-thin button--round-s" 
+                                    data-text="Add to search">
                                     <span> <strong>{{ catvar[0] }}</strong>&nbsp; {{ catvar[1] }} </span>
                                 </button>
                             {% endfor %}

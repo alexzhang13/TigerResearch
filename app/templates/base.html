@@ -7,6 +7,7 @@
     <title>TigerResearch</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=News+Cycle:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='re.ico') }}">
     
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css">
@@ -48,12 +49,15 @@
             <div class="navbar-header"><a class="navbar-brand"
                     style="font-family:Actor, sans-serif;color:rgb(255,255,255);">TigerResearch</a>
             </div>
-           <a href="{{ url_for('main.logout') }}">
-                <div class="button-container-2">
-                    <span class="mas">LOGOUT</span>
-                    <button type="button" name="Hover">{{ user }} </button>
-                </div>
-            </a>
+            {% if user is defined and user != '' %}
+                <a href="{{ url_for('main.logout') }}">
+                    <div class="button-container-2">
+                        <span class="mas">LOGOUT</span>
+                        <button type="button" name="Hover">{{ user }}</button>
+                    </div>
+                </a>
+            {% else %}
+            {% endif %}
         </div>
     </nav>
     <br>

@@ -20,10 +20,16 @@ cas_client = CASClient(
 @bp.route("/", methods=["GET", "POST"])
 def index():
     if 'username' in session:
+        args = request.args
         categories = utils.listify_file('app/static/assets/files/courses.txt')
-        return render_template("index.html", title='TigerResearch', categories=categories, 
-        user=session['username'])
-    return redirect(url_for('main.login'))
+        search=''
+        if "q" in request.args:
+            search = request.args.get("q")
+        return render_template("index.html", title='Tiger Research', categories=categories, 
+        user=session['username'], search=search)
+
+    return render_template("login.html", title='Login to TigerResearch')
+
 
 # TODO: Add login page
 @bp.route("/login", methods=['GET', 'POST'])
@@ -51,7 +57,7 @@ def login():
         'CAS verify ticket response: user: %s, attributes: %s, pgtiou: %s', user, attributes, pgtiou)
 
     if not user:
-        return 'Failed to verify ticket. <a href="/login">Login</a>'
+        return redirect(url_for('main.login'))
     else:  # Login successfully, redirect according `next` query parameter.
         session['username'] = user
         user_id = models.User.query.filter_by(id=user).first()
@@ -82,7 +88,7 @@ def logout():
 def logout_callback():
     # redirect from CAS logout request after CAS logout successfully
     session.pop('username', None)
-    return 'Logged out from CAS. <a href="/login">Login</a>'
+    return redirect(url_for('main.index'))
 
 @login_required
 @bp.route("/map")
@@ -111,10 +117,15 @@ def display_info():
 @bp.route('/professor/<netid>')
 def get_professor(netid):
     if 'username' in session:
+        args = request.args
+        search=''
+        if "q" in request.args:
+            search = request.args.get("q")
+
         res = models.Professor.query.filter_by(netid=netid).first()
         categories = utils.listify_file('app/static/assets/files/courses.txt')
         return render_template("index.html", title='TigerResearch', categories=categories, 
-        user=session['username'], display=res)
+        user=session['username'], display=res, search=search)
     return redirect(url_for('main.login'))
 
 
