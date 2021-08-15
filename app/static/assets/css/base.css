@@ -146,6 +146,7 @@ a.list-group-item, button.list-group-item {
   height: -webkit-fill-available;
   overflow:scroll;
   overflow-y:auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 

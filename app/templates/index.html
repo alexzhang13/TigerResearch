@@ -16,7 +16,7 @@
                         <h3 class="panel-title">Filters</h3>
                     </div>
                     <div class="filter panel-body scrollable">
-                        <div class="list-group list-group-filter scrollable" id="filterlist">
+                        <div class="list-group list-group-filter" id="filterlist">
                             {% for cat in categories %}
                                 {% set catvar = cat.split('  ') %}
                                 <button id="{{ catvar[0] }}" class="button button--winona button--border-thin button--round-s" 
