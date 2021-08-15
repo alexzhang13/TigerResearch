@@ -12,7 +12,7 @@ from cas import CASClient
 
 cas_client = CASClient(
     version=3,
-    service_url='http://localhost:5000/login?next=%2Fprofile',
+    service_url='https://tiger-research.herokuapp.com/login?next=%2Fprofile',
     server_url='https://fed.princeton.edu/cas/login'
 )
 
