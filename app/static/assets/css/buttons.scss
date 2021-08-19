@@ -88,7 +88,7 @@ $col) {
  margin-bottom: 2vh;
  margin-top: 2vh;
  overflow: hidden;
- border: 1px solid #ffffff;
+ border: 1px solid #ff5400;
  font-family: 'Lato', sans-serif;
  font-weight: 300;
  transition: 0.5s;
@@ -104,11 +104,11 @@ $col) {
   letter-spacing: 1px;
   font-weight: bold;
 
-  @include button(#ee8d5d, "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png",
+  @include button(#000, "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png",
   3000%,
   100%,
   none,
-  #fff);
+  #ff5400);
   cursor: pointer;
   -webkit-animation: ani2 0.7s steps(29) forwards;
   animation: ani2 0.7s steps(29) forwards;

@@ -27,8 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         " <div class=\"col-10 mb-1 small\">" + value.keywords + "</div>" +
                         "</a>"
                 });
+                num_results = "<h3 class=\"panel-title\" style=\"color: #fff\">" + ovalue.length + " Search Results</h3>"
             });
             $("#search-results").html(data)
+            $("#search-results-num").html(num_results)
+            
         }
     });
 }, false);
@@ -62,8 +65,10 @@ $(document).ready(function () {
                             " <div class=\"col-10 mb-1 small\">" + value.keywords + "</div>" +
                             "</a>"
                     });
+                    num_results = "<h3 class=\"panel-title\" style=\"color: #fff\">" + ovalue.length + " Search Results</h3>"
                 });
                 $("#search-results").html(data)
+                $("#search-results-num").html(num_results)
             }
         })
     });
@@ -100,8 +105,10 @@ function filter_click(button) {
                         " <div class=\"col-10 mb-1 small\">" + value.keywords + "</div>" +
                         "</a>"
                 });
+                num_results = "<h3 class=\"panel-title\" style=\"color: #fff\">" + ovalue.length + " Search Results</h3>"
             });
             $("#search-results").html(data)
+            $("#search-results-num").html(num_results)
         }
     })
 }

@@ -44,11 +44,11 @@
     <link href="../static/assets/css/base.css" rel="stylesheet" type="text/css">
 </head>
 
-<body style="background-color:rgb(255,255,255);">
+<body style="background-color:rgb(0,0,0);">
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header"><a class="navbar-brand"
-                    style="font-family:Actor, sans-serif;color:rgb(255,255,255);">TigerResearch</a>
+                    style="font-family:Actor, sans-serif;color:#ff5400;">TigerResearch</a>
             </div>
             {% if user is defined and user != '' %}
                 <a href="{{ url_for('main.logout') }}">
@@ -61,11 +61,10 @@
             {% endif %}
         </div>
     </nav>
-    <br>
+    <hr>
     {% block content %} {% endblock %}
     <footer class="site-footer">
-        <div class="container">
-            <hr>
+        <div class="container ">
             <div class="row">
                 <div class="col-md-12">
                     <h5>TigerResearch ©2021</h5>

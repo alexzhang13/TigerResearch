@@ -12,13 +12,22 @@ from cas import CASClient
 
 cas_client = CASClient(
     version=3,
-    service_url='https://tiger-research.herokuapp.com/login?next=%2Fprofile',
+    service_url='https://tiger-research.herokuapp.com/login',
+    # service_url='https://localhost:5000/login',
     server_url='https://fed.princeton.edu/cas/login'
 )
 
 #@login_required
 @bp.route("/", methods=["GET", "POST"])
 def index():
+    args = request.args
+    categories = utils.listify_file('app/static/assets/files/courses.txt')
+    search=''
+    if "q" in request.args:
+        search = request.args.get("q")
+    return render_template("index.html", title='Tiger Research', categories=categories, 
+    user='test-account', search=search)
+    '''
     if 'username' in session:
         args = request.args
         categories = utils.listify_file('app/static/assets/files/courses.txt')
@@ -29,6 +38,7 @@ def index():
         user=session['username'], search=search)
 
     return render_template("login.html", title='Login to TigerResearch')
+    '''
 
 
 # TODO: Add login page

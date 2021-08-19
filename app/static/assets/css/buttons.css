@@ -70,7 +70,7 @@
   margin-bottom: 2vh;
   margin-top: 2vh;
   overflow: hidden;
-  border: 1px solid #ffffff;
+  border: 1px solid #ff5400;
   font-family: "Lato", sans-serif;
   font-weight: 300;
   transition: 0.5s;
@@ -85,13 +85,13 @@
   font-size: 11px;
   letter-spacing: 1px;
   font-weight: bold;
-  background: #ee8d5d;
+  background: #000;
   -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
   mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
   -webkit-mask-size: 3000% 100%;
   mask-size: 3000% 100%;
   border: none;
-  color: #fff;
+  color: #ff5400;
   cursor: pointer;
   -webkit-animation: ani2 0.7s steps(29) forwards;
   animation: ani2 0.7s steps(29) forwards;
