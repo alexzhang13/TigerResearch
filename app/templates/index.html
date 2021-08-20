@@ -28,10 +28,10 @@
                 <div class="filter panel-body panel-body scrollable" style="background-color:rgb(224, 224, 224)">
                     <div class="list-group list-group-filter" id="filterlist">
                         {% for cat in categories %}
-                        {% set catvar = cat.split(' ') %}
+                        {% set catvar = cat.split('  ') %}
                         <button id="{{ catvar[0] }}" class="button button--winona button--border-thin button--round-s"
                             data-text="Add to search" onclick="filter_click({{ catvar[0] }})">
-                            <span> <strong>{{ catvar[0] }}</strong>&nbsp; {{ catvar[1] }} </span>
+                            <span> <strong>{{ catvar[0] }}</strong> {{ catvar[1] }} </span>
                         </button>
                         {% endfor %}
                     </div>

@@ -6,8 +6,8 @@ import json
 from app import db
 from app.main import bp
 from app.models import models
+from app.models import utils
 
-import app.utils as utils
 from cas import CASClient
 
 cas_client = CASClient(
@@ -20,6 +20,14 @@ cas_client = CASClient(
 #@login_required
 @bp.route("/", methods=["GET", "POST"])
 def index():
+    args = request.args
+    categories = utils.listify_file('app/static/assets/files/courses.txt')
+    search=''
+    if "q" in request.args:
+        search = request.args.get("q")
+    return render_template("index.html", title='Tiger Research', categories=categories, 
+    user='test-account', search=search)
+    '''
     if 'username' in session:
         args = request.args
         categories = utils.listify_file('app/static/assets/files/courses.txt')
@@ -30,6 +38,7 @@ def index():
         user=session['username'], search=search)
 
     return render_template("login.html", title='Login to TigerResearch')
+    '''
 
 
 # TODO: Add login page
@@ -124,9 +133,15 @@ def get_professor(netid):
             search = request.args.get("q")
 
         res = models.Professor.query.filter_by(netid=netid).first()
-        categories = utils.listify_file('app/static/assets/files/courses.txt')
-        return render_template("index.html", title='TigerResearch', categories=categories, 
-        user=session['username'], display=res, search=search)
+        res_name = models.Professor.query.filter_by(name=netid).first()
+        if res is None:
+            categories = utils.listify_file('app/static/assets/files/courses.txt')
+            return render_template("index.html", title='TigerResearch', categories=categories, 
+            user=session['username'], display=res, search=search)
+        else:
+            categories = utils.listify_file('app/static/assets/files/courses.txt')
+            return render_template("index.html", title='TigerResearch', categories=categories, 
+            user=session['username'], display=res_name, search=search)
     return redirect(url_for('main.login'))
 
 

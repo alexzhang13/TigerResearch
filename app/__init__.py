@@ -1,3 +1,5 @@
+from app import utils
+
 from flask import Flask, session
 from flask_cors import CORS
 from flask_bootstrap import Bootstrap
@@ -28,19 +30,32 @@ cors = CORS()
 login = LoginManager()
 
 def init_db(app):
+    print ("INIT DB")
     with app.app_context():
         db.drop_all()
         db.create_all()
 
-        with open('cos_dep.csv', newline='') as csvfile:
+        with open('data.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
+                '''
                 if (len(row['availability']) == 0): advising = True
                 elif (row['availability'][0] == 'N' or row['availability'][0] == 'n'): advising = False
                 else: advising = True
+                '''
+                advising = True
+                h_index = row['h_index']
+                citations = row['citations']
+                if row['h_index'] == 'N/a': h_index=-1
+                if row['citations'] == 'N/a': citations=-1
+                if row['netid']=='N/a': continue
+
+                print(utils.listify_string(row['fingerprints']))
                 p = Professor(netid=row['netid'], name=row['name'], department=row['department'], 
-                email=row['email'], research_interests=row['research-interests'], advising=advising)
-                print(p)
+                email=row['netid']+'@princeton.edu', citations=citations,
+                hindex=h_index, picture=row['picture'], fingerprints=utils.listify_string(row['fingerprints']),
+                projects=utils.listify_string(row['projects']), publications=utils.listify_string(row['research']),
+                faculty=utils.listify_string(row['similar']), keywords=utils.get_keywords(row['fingerprints']), advising=advising)
                 db.session.add(p)
             db.session.commit()
 

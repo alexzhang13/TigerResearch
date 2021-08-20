@@ -192,15 +192,14 @@ a:focus {
 
 /* Common button styles */
 .button {
-	float: left;
-	min-width: 13vw;
-	max-width: 13vw;
+	display: inline-block;
+	min-width: 14.55vw;
+	max-width: 14.55vw;
     font-size: 1em;
-	display: block;
 	margin: .3em;
 	padding: 1em 2em;
 	border: none;
-	background: #fff1d9;
+	background: #bbbbbb;
 	color: inherit;
 	vertical-align: middle;
     horizontal-align: middle;
@@ -299,7 +298,7 @@ a:focus {
 	top: 0;
 	left: 0;
 	opacity: 0;
-	color: #3f51b5;
+	color: #ff5400;
 	-webkit-transform: translate3d(0, 25%, 0);
 	transform: translate3d(0, 25%, 0);
 }
@@ -308,7 +307,7 @@ a:focus {
 	display: block;
 }
 .button--winona.button--inverted {
-	color: #7986cb;
+	color: #ff5400;
 }
 .button--winona.button--inverted:after {
 	color: #fff;
@@ -322,7 +321,7 @@ a:focus {
 	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
 .button--winona:hover {
-	border-color: #3f51b5;
+	border-color: #ff5400;
 	background-color: rgba(63, 81, 181, 0.1);
 }
 .button--winona.button--inverted:hover {

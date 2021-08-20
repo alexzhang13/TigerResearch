@@ -42,15 +42,20 @@ class Professor (db.Model):
 
     name = db.Column(db.String(64), index=True, default="")
     netid = db.Column(db.String(64), primary_key=True)
-    rating = db.Column(db.Integer(), default=0)
     department = db.Column(db.String(64), default="")
     type = db.Column(db.String(64), default="")
     email = db.Column(db.String(120), default="")
     website = db.Column(db.String(120), default="")
-    keywords = db.Column(db.String(1024), default="")
-    research_interests = db.Column(db.String(1024), default="")
-    room = db.Column(db.String(64), default="")
+    picture = db.Column(db.String(256), default="")
+    keywords = db.Column(db.String(256), default="")
+    fingerprints = db.Column(db.PickleType(), default="")
+    projects = db.Column(db.PickleType(), default="")
+    publications = db.Column(db.PickleType(), default="")
+    faculty = db.Column(db.PickleType(), default="")
     advising = db.Column(db.Boolean, default=True)
+    citations = db.Column(db.Integer(), default=0)
+    hindex = db.Column(db.Integer(), default=0)
+    rating = db.Column(db.Integer(), default=0)
 
     likes = db.relationship('ProfLike', backref='prof', lazy='dynamic')
 
@@ -68,9 +73,13 @@ class Professor (db.Model):
            'email': self.email,
            'website': self.website,
            'keywords': self.keywords,
-           'research_interests': self.research_interests,
-           'room': self.room,
+           'projects': self.projects,
+           'publications': self.publications,
+           'citations': self.citations,
+           'hindex': self.hindex,
            'advising': self.advising,
+           'picture': self.picture,
+           'faculty': self.faculty,
            'likes': self.likes.count()
        }
        
