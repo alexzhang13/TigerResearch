@@ -32,7 +32,7 @@ function search_click(id) {
                 "    <td><a href=\"#" + value.website + "\">" + value.website + "</a></td>" +
                 "</tr>" +
                 "</table>" +
-            
+                "<hr>" +
                 "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Publications</h5>" +
                 "<ul class=\"list-group\">"
                 // publications
@@ -41,6 +41,8 @@ function search_click(id) {
                 })
 
                 data +=
+                "</ul>" +
+                "<hr>" +
                 "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Projects</h5>" +
                 "<ul class=\"list-group\">"
                 // projects
@@ -51,17 +53,18 @@ function search_click(id) {
                 data += 
                 "</ul>" +
                 // coursework
+                "<hr>" +
                 "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recommended Coursework </h5>" +
-                "<ul class=\"list-group\">"
+                "<ul class=\"list-group\">" +
                 "    <li class=\"list-group-item\">N/A</li>" +
                 "</ul>"
 
 
                 // related faculty
                 data +=
+                "<hr>" +
                 "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Related Faculty </h5>" +
                 "<ul class=\"list-group\">"
-                // publications
                 value.faculty.forEach(function (element) {
                     data += "<li class=\"list-group-item\">" +
                         "<a href=\"#" + "tiger-research.herokuapp.com/professor/" + element[0] + "\">" + element[0] + "</a>" +
@@ -69,7 +72,7 @@ function search_click(id) {
                 })
 
                 data +=
-                "</ul>"
+                "</ul>" +
                 "<br> </div>"
             search_text = $("#listSearch").val();
             window.history.pushState(null, "", "/professor/" + value.netid + "?q=" + search_text);

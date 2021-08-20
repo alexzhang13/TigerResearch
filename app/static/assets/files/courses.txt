@@ -2,7 +2,7 @@ AAS  African American Studies
 AFS  African Studies
 AMS  American Studies
 ANT  Anthropology
-AOS  Atmospheric & Oceanic Sciences
+AOS  Atmosphere & Ocean Sciences
 APC  Appl and Computational Math
 ARA  Arabic
 ARC  Architecture
@@ -34,7 +34,7 @@ ENE  Energy Studies
 ENG  English
 ENT  Entrepreneurship
 ENV  Environmental Studies
-EPS  Contemporary European Politics
+EPS  Contemporary Euro Politics
 FIN  Finance
 FRE  French
 FRS  Freshman Seminars
@@ -81,7 +81,7 @@ POL  Politics
 POP  Population Studies
 POR  Portuguese
 PSY  Psychology
-QCB  Quantitative Computational Bio
+QCB  Quantitative Comp Bio
 REL  Religion
 RES  Russian, East Europ, Eurasian
 RUS  Russian
@@ -91,8 +91,8 @@ SLA  Slavic Languages and Lit
 SML  Statistics & Machine Learning
 SOC  Sociology
 SPA  Spanish
-SPI  School of Public and International Affairs
-STC  Science and Technology Council
+SPI  School of Public & Int. Affairs
+STC  Science and Tech Council
 SWA  Swahili
 THR  Theater
 TPP  Teacher Preparation

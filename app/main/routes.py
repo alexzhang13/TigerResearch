@@ -39,7 +39,7 @@ def index():
         user=session['username'], search=search)
 
     return render_template("login.html", title='Login to TigerResearch')
-
+    
 
 # TODO: Add login page
 @bp.route("/login", methods=['GET', 'POST'])
@@ -110,8 +110,12 @@ def map():
 @bp.route("/livesearch", methods=["GET", "POST"])
 def live_search():
     searchbox = request.form.get("text")
+    queryString = request.form.get("qstring")
+
     query = models.Professor.query
     query = query.filter(or_(*utils.get_filters(searchbox)))
+    if queryString != "":
+        query = query.filter(or_(*utils.get_departments(queryString)))
     res = query.all()
     
     return jsonify(json_list=[i.serialize for i in res])

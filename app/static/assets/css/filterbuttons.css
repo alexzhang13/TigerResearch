@@ -233,6 +233,13 @@ a:focus {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.button input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
 .button:focus {
   outline: none;
 }
@@ -315,6 +322,79 @@ a:focus {
 }
 
 /* Individual button styles */
+/* Filter buttons */
+.f-button {
+  border-color: #000000;
+  display: inline-block;
+  min-width: 14.55vw;
+  max-width: 14.55vw;
+  font-size: 1em;
+  margin: 0.3em;
+  padding: 1em 2em;
+  border: 1px solid;
+  background: #bbbbbb;
+  color: inherit;
+  vertical-align: middle;
+  horizontal-align: middle;
+  position: relative;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.f-button input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.f-button:focus {
+  outline: none;
+}
+
+.f-button:hover {
+  border-color: #ff5400;
+  overflow: auto;
+  background-color: #ffb5903f;
+}
+
+.f-button label {
+  float: left;
+  width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  font-weight: normal;
+}
+
+.f-button label span {
+  text-align: center;
+  padding: 3px 0x;
+  display: block;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  font-weight: normal;
+  text-align: center;
+  height: 45px !important;
+  vertical-align: middle;
+}
+
+.check {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.check:checked ~ .f-button {
+  background-color: #8bcf76;
+  border-color: #2d7917;
+}
+
 /* Winona */
 .button--winona {
   overflow: hidden;
@@ -324,6 +404,10 @@ a:focus {
   transition: border-color 0.3s, background-color 0.3s;
   -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.button--winona input:checked ~ .filter_btn {
+  background-color: #76ff769c;
 }
 
 .button--winona::after {
@@ -342,6 +426,7 @@ a:focus {
 
 .button--winona > span {
   font-size: 1em;
+  text-align: center;
   display: block;
 }
 

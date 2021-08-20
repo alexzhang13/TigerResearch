@@ -29,10 +29,12 @@
                     <div class="list-group list-group-filter" id="filterlist">
                         {% for cat in categories %}
                         {% set catvar = cat.split('  ') %}
-                        <button id="{{ catvar[0] }}" class="button button--winona button--border-thin button--round-s"
-                            data-text="Add to search" onclick="filter_click({{ catvar[0] }})">
-                            <span> <strong>{{ catvar[0] }}</strong> {{ catvar[1] }} </span>
-                        </button>
+                        <label for="{{ catvar[0] }}">
+                            <input id="{{ catvar[0] }}" type="checkbox" class="check" onclick="tick_checkbox({{ catvar[0] }})" value="0">
+                            <div class="f-button" id="btn_{{ catvar[0] }}">
+                                <span class=> <strong>{{ catvar[0] }}</strong> {{ catvar[1] }} </span>
+                            </div>
+                        </label>
                         {% endfor %}
                     </div>
                 </div>
