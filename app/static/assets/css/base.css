@@ -40,10 +40,6 @@ main {
 
 /* STRUCTURE */
 
-* {
-  border-radius: 0 !important;
-}
-
 hr {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -226,6 +222,7 @@ color: #000;
 background-color: #000;
 border: 0px solid;
 text-align: center;
+border-radius: 0 !important;
 }
 
 .btn {

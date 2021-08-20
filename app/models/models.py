@@ -80,6 +80,7 @@ class Professor (db.Model):
            'advising': self.advising,
            'picture': self.picture,
            'faculty': self.faculty,
+           'fingerprints': self.fingerprints,
            'likes': self.likes.count()
        }
        

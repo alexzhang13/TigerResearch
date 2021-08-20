@@ -1,3 +1,16 @@
+function hash_color (text) {
+    var hash = 0;
+    for (var i = 0; i < text.length; i++) {
+        hash = text.charCodeAt(i) + ((hash << 7) - hash);
+    }
+    var color = "";
+    for (var i = 0; i < 3; i++) {
+        var value = (hash >> (i * 8)) & 0xFF;
+        color += ('00' + value.toString(16)).substr(-2)
+    }
+    return color;
+}
+
 function search_click(id) {
     $.ajax({
         method: "post",
@@ -5,15 +18,24 @@ function search_click(id) {
         data: { id: id },
         success: function (value) {
             data = "<div class=\"panel-body\" id=\"display-prof-" + value.netid + "\">" +
-                "<div class=\"col-md-8\">" + 
+                "<div class=\"container\">" +
+                "<div class=\"col-md-9\">" + 
                 "<h2> " + value.name + "</h2>" +
-                "<div style=\"text-align: left\" class=\"h5 font-weight: normal\">" + value.keywords
+                "<div style=\"text-align: left\" class=\"h5 font-weight: normal\">"
+                value.fingerprints.forEach(function (element) {
+                    data += "<span class=\"badge\" style=\"margin: 0.3em; background-color: #" + hash_color(element[0]) +  " \">" + element[0] + "</span>"
+                })
                 // loop over keywords and color properly
-                + "</div>" +
+                data += "</div>" +
                 "</div>" + 
-                "<div class=\"col-md-4\" style=\"background-color: #ffffff\">" +
-                "<center> <img src=\"" + value.picture +  "\" class=\"rounded-circle\" style=\"border-radius: 50%\" height=120px> </center>" +
-                "</div>" + 
+                "<div class=\"col-md-3\" style=\"background-color: #ffffff\">" +
+                "<center> <img src=\"" + value.picture +  "\" class=\"rounded-circle\" style=\"border: 1px solid; border-radius: 20%\" height=120px> </center>" +
+                "</div>" +
+                "</div>"
+
+                data +=
+                "<br>" + 
+                "<hr>" + 
                 "<table class=\"table table-hover table-sm table-properties\">" +
                 "<tr v-show=\"department\">" +
                 "    <th>Department: </th>" +
@@ -73,7 +95,7 @@ function search_click(id) {
 
                 data +=
                 "</ul>" +
-                "<br> </div>"
+                "<hr> <br> </div>"
             search_text = $("#listSearch").val();
             window.history.pushState(null, "", "/professor/" + value.netid + "?q=" + search_text);
             $("#display-info").html(data)
