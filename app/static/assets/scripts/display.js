@@ -181,7 +181,7 @@ function load_profile(id) {
                 "<ul class=\"list-group\">"
             value.faculty.forEach(function (element) {
                 data += "<li class=\"list-group-item\">" +
-                    "<a href=\"" + "tiger-research.herokuapp.com/professor/" + element[0] + "\">" + element[0] + "</a>" +
+                    "<a href=\"//" + "tiger-research.herokuapp.com/professor/" + element[0] + "\">" + element[0] + "</a>" +
                     "</li>"
             })
 

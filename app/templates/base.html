@@ -50,27 +50,30 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar navbar-header col-md-3">
-                <a class="navbar-brand" style="font-family:Actor, sans-serif;color:#ff5400;">
-                    <img src="../static/assets/files/tiger.png" height="50" alt="" style="display: inline-block;">
-                    | Research
+                <a class="navbar-brand" style="font-size: 40px;color:#ff5400;">
+                    TigerResearch
                 </a>
             </div>
-            <div class="col-md-6" style="background-color: #000;"></div>
-            <div class="col-md-2 navbar-btns">
-                <a href="{{ url_for('main.index') }}">
-                    <div class="button-container-2">
-                        <span class="mas">HOME</span>
-                        <button type="button" name="Hover">Home</button>
-                    </div>
-                </a>
+            <div class="col-md-5" style="background-color: #000;"></div>
+            <div class="col-md-4 navbar-btns">
                 <a href="{{ url_for('main.about') }}">
                     <div class="button-container-2">
                         <span class="mas">ABOUT</span>
                         <button type="button" name="Hover">About</button>
                     </div>
                 </a>
-            </div>
-            <div class="col-md-1 navbar-btns">
+                <a href="{{ url_for('main.demo') }}">
+                    <div class="button-container-2">
+                        <span class="mas">DEMO</span>
+                        <button type="button" name="Hover">Demo</button>
+                    </div>
+                </a>
+                <a href="{{ url_for('main.feedback') }}">
+                    <div class="button-container-2">
+                        <span class="mas">FEEDBACK</span>
+                        <button type="button" name="Hover">Feedback</button>
+                    </div>
+                </a>
                 {% if user is defined and user != '' %}
                 <a href="{{ url_for('main.logout') }}">
                     <div class="button-container-2">
@@ -78,9 +81,15 @@
                         <button type="button" name="Hover">{{ user }}</button>
                     </div>
                 </a>
+                {% else %}
+                <a href="{{ url_for('main.login') }}">
+                    <div class="button-container-2">
+                        <span class="mas">LOGIN</span>
+                        <button type="button" name="Hover">Login</button>
+                    </div>
+                </a>
+                {% endif %}
             </div>
-            {% else %}
-            {% endif %}
         </div>
     </nav>
     <hr>

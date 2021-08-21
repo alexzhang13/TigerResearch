@@ -104,6 +104,14 @@ def logout_callback():
 def about():
     return render_template("about.html")
 
+@bp.route("/demo", methods=["GET", "POST"])
+def demo():
+    return render_template("demo.html")
+
+@bp.route("/feedback", methods=["GET", "POST"])
+def feedback():
+    return render_template("feedback.html")
+
 @login_required
 @bp.route("/map")
 def map():
