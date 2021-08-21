@@ -9,6 +9,7 @@ def listify_string (text):
         res[i] = res[i].replace('[','')
         res[i] = res[i].replace('%','')
         res[i] = res[i].replace('\'','')
+        res[i] = res[i].replace('\"','')
 
     lst = []
     for i in range(len(res)//2):
