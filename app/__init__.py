@@ -35,7 +35,7 @@ def init_db(app):
         db.drop_all()
         db.create_all()
 
-        with open('data.csv', newline='') as csvfile:
+        with open('app/static/assets/files/data.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 '''
