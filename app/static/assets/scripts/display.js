@@ -21,7 +21,7 @@ function search_click(id) {
                 "<div class=\"container\">" +
                 "<div class=\"col-md-9\">" + 
                 "<h2> " + value.name + "</h2>" +
-                "<div style=\"text-align: left\" class=\"h5 font-weight: normal\">"
+                "<div style=\"text-align: left\" class=\"h4 font-weight: normal\">"
                 value.fingerprints.forEach(function (element) {
                     data += "<span class=\"badge\" style=\"margin: 0.3em; background-color: #" + hash_color(element[0]) +  " \">" + element[0] + "</span>"
                 })
@@ -59,7 +59,7 @@ function search_click(id) {
                 "</tr>" +
                 "</table>" +
                 "<hr>" +
-                "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Publications</h5>" +
+                "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Publications</h4>" +
                 "<ul class=\"list-group\">"
                 // publications
                 value.publications.forEach(function(element) {
@@ -69,7 +69,7 @@ function search_click(id) {
                 data +=
                 "</ul>" +
                 "<hr>" +
-                "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Projects</h5>" +
+                "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Projects</h4>" +
                 "<ul class=\"list-group\">"
                 // projects
                 value.projects.forEach(function (element) {
@@ -80,7 +80,7 @@ function search_click(id) {
                 "</ul>" +
                 // coursework
                 "<hr>" +
-                "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recommended/Taught Coursework </h5>" +
+                "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recommended/Taught Coursework </h4>" +
                 "<ul class=\"list-group\">" +
                 "    <li class=\"list-group-item\">N/A</li>" +
                 "</ul>"
@@ -89,7 +89,7 @@ function search_click(id) {
                 // related faculty
                 data +=
                 "<hr>" +
-                "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Related Faculty </h5>" +
+                "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Related Faculty </h4>" +
                 "<ul class=\"list-group\">"
                 value.faculty.forEach(function (element) {
                     data += "<li class=\"list-group-item\">" +
@@ -117,7 +117,7 @@ function load_profile(id) {
                 "<div class=\"container\">" +
                 "<div class=\"col-md-9\">" +
                 "<h2> " + value.name + "</h2>" +
-                "<div style=\"text-align: left\" class=\"h5 font-weight: normal\">"
+                "<div style=\"text-align: left\" class=\"h4 font-weight: normal\">"
             value.fingerprints.forEach(function (element) {
                 data += "<span class=\"badge\" style=\"margin: 0.3em; background-color: #" + hash_color(element[0]) + " \">" + element[0] + "</span>"
             })
@@ -155,7 +155,7 @@ function load_profile(id) {
                 "</tr>" +
                 "</table>" +
                 "<hr>" +
-                "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Publications</h5>" +
+                "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Publications</h4>" +
                 "<ul class=\"list-group\">"
             // publications
             value.publications.forEach(function (element) {
@@ -165,7 +165,7 @@ function load_profile(id) {
             data +=
                 "</ul>" +
                 "<hr>" +
-                "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Projects</h5>" +
+                "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Projects</h4>" +
                 "<ul class=\"list-group\">"
             // projects
             value.projects.forEach(function (element) {
@@ -176,7 +176,7 @@ function load_profile(id) {
                 "</ul>" +
                 // coursework
                 "<hr>" +
-                "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recommended/Taught Coursework </h5>" +
+                "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recommended/Taught Coursework </h4>" +
                 "<ul class=\"list-group\">" +
                 "    <li class=\"list-group-item\">N/A</li>" +
                 "</ul>"
@@ -185,7 +185,7 @@ function load_profile(id) {
             // related faculty
             data +=
                 "<hr>" +
-                "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Related Faculty </h5>" +
+                "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Related Faculty </h4>" +
                 "<ul class=\"list-group\">"
             value.faculty.forEach(function (element) {
                 data += "<li class=\"list-group-item\">" +
