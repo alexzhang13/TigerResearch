@@ -2,6 +2,20 @@
 
 * { box-sizing: border-box; }
 
+@font-face {
+    font-family: 'DIN Alternate';
+    font-style: normal;
+    font-weight: normal;
+    src: local('DIN Alternate Bold'), url('../fonts/DINAlternate-Bold.woff') format('woff');
+    }
+
+@font-face {
+    font-family: 'Avenir Next';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir Next LT Pro Regular'), url('../fonts/AvenirNextLTPro-Regular.otf') format('otf');
+    }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'DIN Alternate', sans-serif !important;
 }

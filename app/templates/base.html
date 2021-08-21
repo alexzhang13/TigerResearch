@@ -35,9 +35,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="../static/assets/scripts/feedback.js"></script>
         
     
     <!-- Custom styles for this template -->
+    <link href="../static/assets/css/feedback.css" rel="stylesheet" type="text/css">
     <link href="../static/assets/css/login.css" rel="stylesheet" type="text/css">
     <link href="../static/assets/css/nanoscroller.css" rel="stylesheet" type="text/css">
     <link href="../static/assets/css/filterbuttons.css" rel="stylesheet" type="text/css">
@@ -50,7 +52,7 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar navbar-header col-md-3">
-                <a class="navbar-brand" style="font-size: 40px;color:#ff5400;">
+                <a href="{{ url_for('main.index') }}" class="navbar-brand" style="font-size: 40px;color:#ff5400;">
                     TigerResearch
                 </a>
             </div>
@@ -68,10 +70,18 @@
                         <button type="button" name="Hover">Demo</button>
                     </div>
                 </a>
-                <a href="{{ url_for('main.feedback') }}">
+                <a>
                     <div class="button-container-2">
                         <span class="mas">FEEDBACK</span>
-                        <button type="button" name="Hover">Feedback</button>
+                        <button type="button" name="Hover" onclick="triggerForm()" id="feedback-btn">Feedback</button>
+                    </div>
+                    <div class="form-popup" id="feedback-form">
+                        <form action="" class="form-container">
+                            <p>Have any feedback for us?</p>
+                    
+                            <input type="text" placeholder="I think..." name="response" required>
+                            <button type="submit" class="btn">Send</button>
+                        </form>
                     </div>
                 </a>
                 {% if user is defined and user != '' %}

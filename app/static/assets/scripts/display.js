@@ -53,6 +53,10 @@ function search_click(id) {
                 "    <th>Website:</th>" +
                 "    <td><a href=\"" + value.website + "\">" + value.website + "</a></td>" +
                 "</tr>" +
+                "<tr v-show=\"citations\">" +
+                "    <th>Citations:</th>" +
+                "    <td><a href=\"" + value.citations + "\">" + value.citations + "</a></td>" +
+                "</tr>" +
                 "</table>" +
                 "<hr>" +
                 "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Publications</h5>" +
@@ -89,7 +93,7 @@ function search_click(id) {
                 "<ul class=\"list-group\">"
                 value.faculty.forEach(function (element) {
                     data += "<li class=\"list-group-item\">" +
-                        "<a href=\"" + "tiger-research.herokuapp.com/professor/" + element[0] + "\">" + element[0] + "</a>" +
+                        "<a href=\"//" + "tiger-research.herokuapp.com/?q=" + element[0] + "\">" + element[0] + "</a>" +
                         "</li>"
                 })
 
@@ -145,6 +149,10 @@ function load_profile(id) {
                 "    <th>Website:</th>" +
                 "    <td><a href=\"" + value.website + "\">" + value.website + "</a></td>" +
                 "</tr>" +
+                "<tr v-show=\"citations\">" +
+                "    <th>Citations:</th>" +
+                "    <td><a href=\"" + value.citations + "\">" + value.citations + "</a></td>" +
+                "</tr>" +
                 "</table>" +
                 "<hr>" +
                 "<h5 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Recent Publications</h5>" +
@@ -181,7 +189,7 @@ function load_profile(id) {
                 "<ul class=\"list-group\">"
             value.faculty.forEach(function (element) {
                 data += "<li class=\"list-group-item\">" +
-                    "<a href=\"//" + "tiger-research.herokuapp.com/professor/" + element[0] + "\">" + element[0] + "</a>" +
+                    "<a href=\"//" + "tiger-research.herokuapp.com/?q=" + element[0] + "\">" + element[0] + "</a>" +
                     "</li>"
             })
 
