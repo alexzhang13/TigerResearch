@@ -3,13 +3,37 @@
 {% block content %}
 <body>
 
-<div class="row" style="height:65vh">
-<div class="col-md-12 text-center align-middle" id="header-content">
-    <h1 style="font-family:Actor"><strong>Welcome to Tiger Research!</strong></h1>
-    <h3>Easily find professors based on research interests and student feedback</h3>
-    <a id="singlebutton" name="singlebutton" class="btn btn-default btn-lg text-center" href="/login">Click Here to Login</a>
+<div class="row" style="height:80vh">
+    <div class="col-md-12 text-center align-middle" id="header-content">
+        <br>
+        <h1 style="color: white; font-family:Actor"><strong>Welcome to Tiger Research!</strong></h1>
+        <br>
+        <p style="font-size: 20px; color: white;">Princeton's Comprehensive Professor Database for Research and Independent Work</h3>
     </div>
-</div>
+    <div class="login-box">
+        <form>
+            <center>
+                <a href="/login">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Click here to Login
+                </a>
+            </center>
+        </form>
+    </div>
+    <div id="login-anim" style="height: 400px"></div>
+    <script>
+        var animation = bodymovin.loadAnimation({
+            container: document.getElementById('login-anim'),
+            path: '../static/assets/files/tigerhi.json',
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            name: 'TigerResearch',
+        });
+    </script>
 </div>
 
 </body>

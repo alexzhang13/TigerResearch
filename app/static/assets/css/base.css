@@ -233,6 +233,13 @@ border-radius: 0 !important;
   height: 40px;
 }
 
+.navbar-btns {
+  display: flex;
+  justify-content: space-between;
+  background-color: #000;
+  margin-top: 0px;
+}
+
 .input-group-btn>.btn {
   height: 40px;
   background-color: #f54000;

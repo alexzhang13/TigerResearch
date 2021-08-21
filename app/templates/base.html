@@ -28,6 +28,7 @@
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -37,6 +38,7 @@
         
     
     <!-- Custom styles for this template -->
+    <link href="../static/assets/css/login.css" rel="stylesheet" type="text/css">
     <link href="../static/assets/css/nanoscroller.css" rel="stylesheet" type="text/css">
     <link href="../static/assets/css/filterbuttons.css" rel="stylesheet" type="text/css">
     <link href="../static/assets/css/styles.min.css" rel="stylesheet" type="text/css">
@@ -47,16 +49,36 @@
 <body style="background-color:rgb(0,0,0);">
     <nav class="navbar navbar-default">
         <div class="container">
-            <div class="navbar-header"><a class="navbar-brand"
-                    style="font-family:Actor, sans-serif;color:#ff5400;">TigerResearch</a>
+            <div class="navbar navbar-header col-md-3">
+                <a class="navbar-brand" style="font-family:Actor, sans-serif;color:#ff5400;">
+                    <img src="../static/assets/files/tiger.png" height="50" alt="" style="display: inline-block;">
+                    | Research
+                </a>
             </div>
-            {% if user is defined and user != '' %}
+            <div class="col-md-6" style="background-color: #000;"></div>
+            <div class="col-md-2 navbar-btns">
+                <a href="{{ url_for('main.index') }}">
+                    <div class="button-container-2">
+                        <span class="mas">HOME</span>
+                        <button type="button" name="Hover">Home</button>
+                    </div>
+                </a>
+                <a href="{{ url_for('main.about') }}">
+                    <div class="button-container-2">
+                        <span class="mas">ABOUT</span>
+                        <button type="button" name="Hover">About</button>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-1 navbar-btns">
+                {% if user is defined and user != '' %}
                 <a href="{{ url_for('main.logout') }}">
                     <div class="button-container-2">
                         <span class="mas">LOGOUT</span>
                         <button type="button" name="Hover">{{ user }}</button>
                     </div>
                 </a>
+            </div>
             {% else %}
             {% endif %}
         </div>
@@ -67,7 +89,7 @@
         <div class="container ">
             <div class="row">
                 <div class="col-md-12">
-                    <h5>TigerResearch ©2021</h5>
+                    <h5>TigerResearch 2021</h5>
                 </div>
             </div>
         </div>

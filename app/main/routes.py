@@ -100,6 +100,10 @@ def logout_callback():
     session.pop('username', None)
     return redirect(url_for('main.index'))
 
+@bp.route("/about", methods=["GET", "POST"])
+def about():
+    return render_template("about.html")
+
 @login_required
 @bp.route("/map")
 def map():
