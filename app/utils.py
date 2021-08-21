@@ -3,6 +3,7 @@ def listify_string (text):
     This function works for lists of shape (n,2), which works for projects/fingerprints/research
     '''
     text = text.replace('\',','],')
+    text = text.replace('\",','],')
     res = text.split('],')
     for i in range(len(res)):
         res[i] = res[i].replace(']','')
@@ -21,6 +22,7 @@ def get_keywords (text):
     This function works for lists of shape (n,2), which works for projects/fingerprints/research
     '''
     text = text.replace('\',','],')
+    text = text.replace('\",','],')
     res = text.split('],')
     for i in range(len(res)):
         res[i] = res[i].replace(']','')
