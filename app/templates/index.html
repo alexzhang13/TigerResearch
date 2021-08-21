@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if display is defined %}
+<body onload="load_profile('{{ display.netid }}')">
+{% else %}
 <body>
+{% endif %}
 <div>
     <section class="columns">
     <div class="container no-padding" style="height: 100%;">
@@ -9,9 +13,14 @@
         <div class="container no-padding">
             <div class="col-md-1" style="background-color: #000" ></div>
             <div class="col-md-9">
-                <div id="search-container" class="container">
-                    <input class="form-control" id="listSearch" type="text" maxlength=200 placeholder="Search for a Professor or Keyword..."
+                <div id="search-container" class="container input-group">
+                    <input class="form-control py-2" id="listSearch" type="text" maxlength=200 placeholder="Search for a Professor or Keyword..."
                         value="{{search}}">
+                    <div class="input-group-btn">
+                        <button type="button" id="search-btn" class="btn btn-primary" onclick="search_btn()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-1" style="background-color: #000" id="search-results-num">
@@ -59,10 +68,7 @@
                     <h3 class="panel-title" style="color:white">Profile</h3>
                 </div>
                 <div id="display-info" class="display panel-body scrollable" id="nav-tabContent">
-                    {% if display is defined %}
-                        <script> window.onload = load_profile(display.netid) </script>
-                    {% else %}
-                    {% endif %}
+                    
                 </div>
             </div>
         </div>

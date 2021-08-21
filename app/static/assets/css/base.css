@@ -229,6 +229,15 @@ border-radius: 0 !important;
   font-size:10px
 }
 
+.form-control {
+  height: 40px;
+}
+
+.input-group-btn>.btn {
+  height: 40px;
+  background-color: #f54000;
+}
+
 .suggest-result {
 cursor: pointer;
 }

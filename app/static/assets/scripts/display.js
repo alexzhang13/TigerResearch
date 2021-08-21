@@ -104,6 +104,7 @@ function search_click(id) {
 }
 
 function load_profile(id) {
+    console.log("ong load")
     $.ajax({
         method: "post",
         url: "/displayinfo",

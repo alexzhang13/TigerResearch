@@ -39,7 +39,7 @@ def index():
         user=session['username'], search=search)
 
     return render_template("login.html", title='Login to TigerResearch')
-    
+
 
 # TODO: Add login page
 @bp.route("/login", methods=['GET', 'POST'])
