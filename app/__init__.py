@@ -55,7 +55,8 @@ def init_db(app):
                 email=row['netid']+'@princeton.edu', citations=citations,
                 hindex=h_index, picture=row['picture'], fingerprints=utils.listify_string(row['fingerprints']),
                 projects=utils.listify_string(row['projects']), publications=utils.listify_string(row['research']),
-                faculty=utils.listify_string(row['similar']), keywords=utils.get_keywords(row['fingerprints']), advising=advising)
+                faculty=utils.listify_string(row['similar']), keywords=utils.get_keywords(row['fingerprints']), 
+                website=utils.get_website(row['name'],row['netid'],row['department']), advising=advising)
                 db.session.add(p)
             db.session.commit()
 

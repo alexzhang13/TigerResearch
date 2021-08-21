@@ -51,6 +51,7 @@ class Professor (db.Model):
     fingerprints = db.Column(db.PickleType(), default="")
     projects = db.Column(db.PickleType(), default="")
     publications = db.Column(db.PickleType(), default="")
+    courses = db.Column(db.PickleType(), default="")
     faculty = db.Column(db.PickleType(), default="")
     advising = db.Column(db.Boolean, default=True)
     citations = db.Column(db.Integer(), default=0)

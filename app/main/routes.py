@@ -141,11 +141,11 @@ def get_professor(netid):
         if res is None:
             categories = utils.listify_file('app/static/assets/files/courses.txt')
             return render_template("index.html", title='TigerResearch', categories=categories, 
-            user=session['username'], display=res, search=search)
+            user=session['username'], display=res_name, search=search)
         else:
             categories = utils.listify_file('app/static/assets/files/courses.txt')
             return render_template("index.html", title='TigerResearch', categories=categories, 
-            user=session['username'], display=res_name, search=search)
+            user=session['username'], display=res, search=search)
     return redirect(url_for('main.login'))
 
 
