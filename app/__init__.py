@@ -57,7 +57,6 @@ def init_db(app):
                 if row['citations'] == 'N/a': citations=-1
                 if row['netid']=='N/a': continue
 
-                print(utils.listify_string(row['fingerprints']))
                 p = Professor(netid=row['netid'], name=row['name'], department=row['department'], 
                 email=row['netid']+'@princeton.edu', citations=citations, department_color=dep_to_color[row['department']],
                 hindex=h_index, picture=row['picture'], fingerprints=utils.listify_string(row['fingerprints']),

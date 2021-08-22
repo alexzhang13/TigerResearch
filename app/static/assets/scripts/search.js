@@ -101,7 +101,6 @@ function tick_checkbox(button) {
     }
     var queryString = getFilters();
     var search_text = $("#listSearch").val();
-    console.log(queryString);
     $.ajax({
         method: "post",
         url: "/livesearch",

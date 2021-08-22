@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
+<head>
+    <title> {% block title %} TigerResearch {% endblock %} </title>
+</head>
+
 {% block content %}
+
 {% if display is defined %}
 <body onload="load_profile('{{ display.netid }}')">
 {% else %}
