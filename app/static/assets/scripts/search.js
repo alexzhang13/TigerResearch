@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     "<div class=\"flex-container-row\">" +
                         " <div class=\"flex-item-stretch truncate\"> " +
                         " <strong class=\"mb-1\">" + value.name + "</strong> " +
-                        " <small>" + value.department + "</small> " + 
+                        " <small style=\"color: " + value.department_color + "\">" + value.department + "</small> " + 
                         "</div>" +
-                        "<div class=\"flex-item-rigid\">" + 
+                        /*"<div class=\"flex-item-rigid\">" + 
                         value.likes + " <span class=\"glyphicon glyphicon-heart\"></span>" +
-                        " </div> " +
+                        " </div> " +*/
                     "</div>" +  
                         " <div class=\"col-10 mb-1 small\">" + value.keywords + "</div>" +
                         "</a>"
@@ -75,11 +75,11 @@ function search_btn () {
                     "<div class=\"flex-container-row\">" +
                         " <div class=\"flex-item-stretch truncate\"> " +
                         " <strong class=\"mb-1\">" + value.name + "</strong> " +
-                        " <small>" + value.department + "</small> " + 
+                        " <small style=\"color: " + value.department_color + "\">" + value.department + "</small> " + 
                         "</div>" +
-                        "<div class=\"flex-item-rigid\">" + 
+                        /* "<div class=\"flex-item-rigid\">" + 
                         value.likes + " <span class=\"glyphicon glyphicon-heart\"></span>" +
-                        " </div> " +
+                        " </div> " + */
                     "</div>" +  
                         " <div class=\"col-10 mb-1 small\">" + value.keywords + "</div>" +
                         "</a>"
@@ -119,11 +119,11 @@ function tick_checkbox(button) {
                         "<div class=\"flex-container-row\">" +
                         " <div class=\"flex-item-stretch truncate\"> " +
                         " <strong class=\"mb-1\">" + value.name + "</strong> " +
-                        " <small>" + value.department + "</small> " +
+                        " <small style=\"color: " + value.department_color + "\">" + value.department + "</small> " +
                         "</div>" +
-                        "<div class=\"flex-item-rigid\">" +
+                        /* "<div class=\"flex-item-rigid\">" +
                         value.likes + " <span class=\"glyphicon glyphicon-heart\"></span>" +
-                        " </div> " +
+                        " </div> " + */
                         "</div>" +
                         " <div class=\"col-10 mb-1 small\">" + value.keywords + "</div>" +
                         "</a>"

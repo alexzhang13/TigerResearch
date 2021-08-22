@@ -37,11 +37,10 @@
                 <div class="filter panel-body panel-body scrollable" style="background-color:rgb(224, 224, 224)">
                     <div class="list-group list-group-filter" id="filterlist">
                         {% for cat in categories %}
-                        {% set catvar = cat.split('  ') %}
-                        <label for="{{ catvar[0] }}">
-                            <input id="{{ catvar[0] }}" type="checkbox" class="check" onclick="tick_checkbox({{ catvar[0] }})" value="0">
-                            <div class="f-button" id="btn_{{ catvar[0] }}">
-                                <span class style="font-size: 14px"> <strong>{{ catvar[0] }}</strong></span>
+                        <label for="{{ cat[0] }}">
+                            <input id="{{ cat[0] }}" type="checkbox" class="check" onclick="tick_checkbox({{ cat[0] }})" value="0">
+                            <div class="f-button" id="btn_{{ cat[0] }}">
+                                <span class style="font-size: 14px; color: {{ cat[1] }}"> <strong>{{ cat[0] }}</strong></span>
                             </div>
                         </label>
                         {% endfor %}

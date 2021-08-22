@@ -311,6 +311,12 @@ flex-shrink: 0;
 
 
 /* buttons */
+.badge {
+  padding-bottom: 4px;
+  vertical-align: 3px;
+  font-size: 12px;
+}
+
 .searchbar_filter {
 display: inline-block;
 min-height: 28px;

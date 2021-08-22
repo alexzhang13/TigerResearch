@@ -35,6 +35,13 @@ def init_db(app):
         db.drop_all()
         db.create_all()
 
+        dep_to_color = {}
+        with open('app/static/assets/files/courses.txt', newline='') as f:
+            lines = f.readlines()
+            content = [x.split(',') for x in lines] 
+            for d2c in content:
+                dep_to_color[d2c[0]] = d2c[1]
+
         with open('app/static/assets/files/data.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
@@ -52,7 +59,7 @@ def init_db(app):
 
                 print(utils.listify_string(row['fingerprints']))
                 p = Professor(netid=row['netid'], name=row['name'], department=row['department'], 
-                email=row['netid']+'@princeton.edu', citations=citations,
+                email=row['netid']+'@princeton.edu', citations=citations, department_color=dep_to_color[row['department']],
                 hindex=h_index, picture=row['picture'], fingerprints=utils.listify_string(row['fingerprints']),
                 projects=utils.listify_string(row['projects']), publications=utils.listify_string(row['research']),
                 faculty=utils.listify_string(row['similar']), keywords=utils.get_keywords(row['fingerprints']), 
