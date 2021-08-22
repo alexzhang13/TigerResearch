@@ -38,7 +38,7 @@ def index():
         return render_template("index.html", title='Tiger Research', categories=categories, 
         user=session['username'], search=search)
 
-    return render_template("login.html", title='Login to TigerResearch')
+    return render_template("login.html", title='Login to TigerResearch') 
 
 
 # TODO: Add login page

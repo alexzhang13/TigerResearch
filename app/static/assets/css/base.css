@@ -10,10 +10,10 @@
     }
 
 @font-face {
-    font-family: 'Avenir Next';
+    font-family: 'Avenir Next I';
     font-style: normal;
     font-weight: normal;
-    src: local('Avenir Next LT Pro Regular'), url('../fonts/AvenirNextLTPro-Regular.otf') format('otf');
+    src: local('Avenir Next'), url('../fonts/AvenirNextFont.ttf') format('truetype');
     }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,7 +33,7 @@ hfilt {
 }
 
 body { 
-  font-family: 'Avenir Next', sans-serif !important;
+  font-family: 'Avenir Next I', sans-serif !important;
   color: rgb(46, 46, 46);
   min-height: 100%;
   min-width: 100%;

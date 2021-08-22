@@ -41,21 +41,17 @@ function search_click(id) {
                 "    <th>Department: </th>" +
                 "    <td style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20rem;\">" + value.department + "</td>" +
                 "</tr>" +
-                "<tr v-show=\"available\">" +
-                "    <th>Status: </th>" +
-                "    <td style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20rem;\">Available for IW/Thesis Advising</td>" +
-                "</tr>" +
                 "<tr v-show=\"email\">" +
                 "    <th>Email:</th>" +
                 "    <td>" + value.email + "</td>" +
                 "</tr>" +
                 "<tr v-show=\"website\">" +
                 "    <th>Website:</th>" +
-                "    <td><a href=\"" + value.website + "\">" + value.website + "</a></td>" +
+                "    <td><a href=\"\\" + value.website + "\">" + value.website + "</a></td>" +
                 "</tr>" +
                 "<tr v-show=\"citations\">" +
                 "    <th>Citations:</th>" +
-                "    <td>" + value.citations + "</td>" +
+                "    <td>" + (value.citations > 0 ? value.citations : "Unknown") + "</td>" +
                 "</tr>" +
                 "</table>" +
                 "<hr>" +
@@ -64,7 +60,11 @@ function search_click(id) {
                 // publications
                 value.publications.forEach(function(element) {
                     data += "<li class=\"list-group-item\">" + element[0] + "</li>"
-                })
+                });
+
+                if (value.publications.length <= 0) {
+                    data += "<li class=\"list-group-item\"> N/A </li>"
+                }
 
                 data +=
                 "</ul>" +
@@ -74,7 +74,11 @@ function search_click(id) {
                 // projects
                 value.projects.forEach(function (element) {
                     data += "<li class=\"list-group-item\">" + element[0] + "</li>"
-                })
+                });
+
+                if (value.projects.length <= 0) {
+                    data += "<li class=\"list-group-item\"> N/A </li>"
+                }
                 
                 data += 
                 "</ul>" +
@@ -96,6 +100,10 @@ function search_click(id) {
                         "<a href=\"//" + "tiger-research.herokuapp.com/?q=" + element[0] + "\">" + element[0] + "</a>" +
                         "</li>"
                 })
+
+                if (value.faculty.length <= 0) {
+                    data += "<li class=\"list-group-item\"> N/A </li>"
+                }
 
                 data +=
                 "</ul>" +
@@ -137,21 +145,17 @@ function load_profile(id) {
                 "    <th>Department: </th>" +
                 "    <td style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20rem;\">" + value.department + "</td>" +
                 "</tr>" +
-                "<tr v-show=\"available\">" +
-                "    <th>Status: </th>" +
-                "    <td style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20rem;\">Available for IW/Thesis Advising</td>" +
-                "</tr>" +
                 "<tr v-show=\"email\">" +
                 "    <th>Email:</th>" +
                 "    <td>" + value.email + "</td>" +
                 "</tr>" +
                 "<tr v-show=\"website\">" +
                 "    <th>Website:</th>" +
-                "    <td><a href=\"" + value.website + "\">" + value.website + "</a></td>" +
+                "    <td><a href=\"\\" + value.website + "\">" + value.website + "</a></td>" +
                 "</tr>" +
                 "<tr v-show=\"citations\">" +
                 "    <th>Citations:</th>" +
-                "    <td>" + value.citations + "</td>" +
+                "    <td>" + (value.citations > 0 ? value.citations : "Unknown") + "</td>" +
                 "</tr>" +
                 "</table>" +
                 "<hr>" +
@@ -162,6 +166,10 @@ function load_profile(id) {
                 data += "<li class=\"list-group-item\">" + element[0] + "</li>"
             })
 
+            if (value.publications.length <= 0) {
+                data += "<li class=\"list-group-item\"> N/A </li>"
+            }
+
             data +=
                 "</ul>" +
                 "<hr>" +
@@ -171,6 +179,10 @@ function load_profile(id) {
             value.projects.forEach(function (element) {
                 data += "<li class=\"list-group-item\">" + element[0] + "</li>"
             })
+
+            if (value.projects.length <= 0) {
+                data += "<li class=\"list-group-item\"> N/A </li>"
+            }
 
             data +=
                 "</ul>" +
@@ -192,6 +204,10 @@ function load_profile(id) {
                     "<a href=\"//" + "tiger-research.herokuapp.com/?q=" + element[0] + "\">" + element[0] + "</a>" +
                     "</li>"
             })
+
+            if (value.faculty.length <= 0) {
+                data += "<li class=\"list-group-item\"> N/A </li>"
+            }
 
             data +=
                 "</ul>" +
