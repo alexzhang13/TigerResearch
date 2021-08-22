@@ -171,7 +171,6 @@ a.list-group-item, button.list-group-item {
 
 .scrollable {
   height: -webkit-fill-available;
-  overflow:scroll;
   overflow-y:auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -249,7 +248,7 @@ border-radius: 0 !important;
 
 .navbar-btns {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   background-color: #000;
   margin-top: 0px;
 }

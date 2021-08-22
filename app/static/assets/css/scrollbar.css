@@ -1,0 +1,22 @@
+/* total width */
+::-webkit-scrollbar {
+    background-color: #ff440000;
+    width: 8px;
+}
+
+/* background of the scrollbar except button or resizer */
+::-webkit-scrollbar-track {
+    background-color: #c2c2c200;
+}
+
+/* scrollbar itself */
+::-webkit-scrollbar-thumb {
+    background-color: #1f0b009f;
+    border-radius: 16px;
+    border: 0.3px solid rgb(88, 88, 88);
+}
+
+/* set button(top and bottom of the scrollbar) */
+::-webkit-scrollbar-button {
+    display:none;
+}
