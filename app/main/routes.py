@@ -20,7 +20,7 @@ cas_client = CASClient(
 #@login_required
 @bp.route("/", methods=["GET", "POST"])
 def index():
-    
+    '''
     args = request.args
     categories = utils.listify_file('app/static/assets/files/courses.txt') # [(category,color),...]
     search=''
@@ -39,7 +39,6 @@ def index():
         user=session['username'], search=search)
 
     return render_template("login.html", title='Login to TigerResearch') 
-    '''
 
 
 # TODO: Add login page
