@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     "<div class=\"flex-container-row\">" +
                         " <div class=\"flex-item-stretch truncate\"> " +
                         " <strong class=\"mb-1\">" + value.name + "</strong> " +
-                        " <small style=\"color: " + value.department_color + "\">" + value.department + "</small> " + 
+                        " <small style=\"font-weight: bold; color: " + value.department_color + "\">" + value.department + "</small> " +
                         "</div>" +
                         /*"<div class=\"flex-item-rigid\">" + 
                         value.likes + " <span class=\"glyphicon glyphicon-heart\"></span>" +
@@ -75,7 +75,7 @@ function search_btn () {
                     "<div class=\"flex-container-row\">" +
                         " <div class=\"flex-item-stretch truncate\"> " +
                         " <strong class=\"mb-1\">" + value.name + "</strong> " +
-                        " <small style=\"color: " + value.department_color + "\">" + value.department + "</small> " + 
+                        " <small style=\"font-weight: bold; color: " + value.department_color + "\">" + value.department + "</small> " + 
                         "</div>" +
                         /* "<div class=\"flex-item-rigid\">" + 
                         value.likes + " <span class=\"glyphicon glyphicon-heart\"></span>" +
@@ -119,7 +119,7 @@ function tick_checkbox(button) {
                         "<div class=\"flex-container-row\">" +
                         " <div class=\"flex-item-stretch truncate\"> " +
                         " <strong class=\"mb-1\">" + value.name + "</strong> " +
-                        " <small style=\"color: " + value.department_color + "\">" + value.department + "</small> " +
+                        " <small style=\"font-weight: bold; color: " + value.department_color + "\">" + value.department + "</small> " +
                         "</div>" +
                         /* "<div class=\"flex-item-rigid\">" +
                         value.likes + " <span class=\"glyphicon glyphicon-heart\"></span>" +

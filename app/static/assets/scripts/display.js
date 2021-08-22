@@ -39,7 +39,7 @@ function search_click(id) {
                 "<table class=\"table table-hover table-sm table-properties\">" +
                 "<tr v-show=\"department\">" +
                 "    <th>Department: </th>" +
-                "    <td style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20rem; color: " + value.department_color + "\">" + value.department + "</td>" +
+                "    <td style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20rem; font-weight: bold; color: " + value.department_color + "\">" + value.department + "</td>" +
                 "</tr>" +
                 "<tr v-show=\"email\">" +
                 "    <th>Email:</th>" +
@@ -143,7 +143,7 @@ function load_profile(id) {
                 "<table class=\"table table-hover table-sm table-properties\">" +
                 "<tr v-show=\"department\">" +
                 "    <th>Department: </th>" +
-            "    <td style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20rem; color: " + value.department_color + "\">"  + value.department + "</td>" +
+            "    <td style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20rem; font-weight: bold; color: " + value.department_color + "\">"  + value.department + "</td>" +
                 "</tr>" +
                 "<tr v-show=\"email\">" +
                 "    <th>Email:</th>" +
