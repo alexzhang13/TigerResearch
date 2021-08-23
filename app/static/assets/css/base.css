@@ -215,19 +215,19 @@ border-color: #000;
 }
 
 .panel-body {
-  max-height: 65vh;
+  max-height: 75vh;
   padding: 10px;
 }
 
 .panel-body-search {
-  min-height: 65vh;
-  max-height: 65vh;
+  min-height: 75vh;
+  max-height: 75vh;
   padding: 0px;
 }
 
 .panel-body-profile {
-  min-height: 65vh;
-  max-height: 65vh;
+  min-height: 75vh;
+  max-height: 75vh;
 }
 
 .panel-primary>.panel-heading {
