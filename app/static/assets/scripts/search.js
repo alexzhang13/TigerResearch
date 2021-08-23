@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         " <div class=\"col-10 mb-1 small\">" + value.keywords + "</div>" +
                         "</a>"
                 });
-                num_results = "<h3 class=\"panel-title\" style=\"text-align: center; color: #fff\">" + ovalue.length + " Search Results</h3>"
+                num_results = "<h3 class=\"panel-title\" style=\"text-align: center; margin-top: 5px; color: #fff\">" + ovalue.length + " Search Results</h3>"
             });
             $("#search-results").html(data)
             $("#search-results-num").html(num_results)
@@ -84,7 +84,7 @@ function search_btn () {
                         " <div class=\"col-10 mb-1 small\">" + value.keywords + "</div>" +
                         "</a>"
                 });
-                num_results = "<h3 class=\"panel-title\" style=\"text-align: center; color: #fff\">" + ovalue.length + " Search Results</h3>"
+                num_results = "<h3 class=\"panel-title\" style=\"text-align: center; margin-top: 5px; color: #fff\">" + ovalue.length + " Search Results</h3>"
             });
             $("#search-results").html(data)
             $("#search-results-num").html(num_results)
@@ -127,7 +127,7 @@ function tick_checkbox(button) {
                         " <div class=\"col-10 mb-1 small\">" + value.keywords + "</div>" +
                         "</a>"
                 });
-                num_results = "<h3 class=\"panel-title\" style=\"text-align: center; color: #fff\">" + ovalue.length + " Search Results</h3>"
+                num_results = "<h3 class=\"panel-title\" style=\"text-align: center; margin-top: 5px; color: #fff\">" + ovalue.length + " Search Results</h3>"
             });
             $("#search-results").html(data)
             $("#search-results-num").html(num_results)
