@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 
+<head>
+    <title> {% block title %} TigerResearch - Page Not Found {% endblock %} </title>
+</head>
+
 {% block content %}
-<div class="container">
-    <hr>
-    <div class="row">
-        <div class="col-md-12">
-            <h1>File Not Found</h1>
-            <p><a href="{{ url_for('main.index') }}">Back</a></p>
+
+<body>
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color: white">File Not Found</h1>
+                <p><a href="{{ url_for('main.index') }}" style="color: white">Back</a></p>
+            </div>
         </div>
     </div>
-</div>
+</body>
+
+
 {% endblock %}
