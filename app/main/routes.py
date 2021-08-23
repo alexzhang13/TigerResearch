@@ -102,11 +102,11 @@ def logout_callback():
 
 @bp.route("/about", methods=["GET", "POST"])
 def about():
-    return render_template("about.html", title='TigerResearch - About')
+    return render_template("about.html", user=session['username'], title='TigerResearch - About')
 
 @bp.route("/demo", methods=["GET", "POST"])
 def demo():
-    return render_template("demo.html", title='TigerResearch - Demo')
+    return render_template("demo.html", user=session['username'], title='TigerResearch - Demo')
 
 @bp.route("/feedback", methods=["GET", "POST"])
 def feedback():
