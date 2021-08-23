@@ -223,10 +223,9 @@ border-color: #000;
   padding: 0px;
 }
 
-.panel-body-long {
-  min-height: 74.5vh;
-  max-height: 74.5vh;
-  padding: 10px;
+.panel-body-profile {
+  min-height: 65vh;
+  max-height: 65vh;
 }
 
 .panel-primary>.panel-heading {
