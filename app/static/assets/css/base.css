@@ -213,7 +213,6 @@ border-color: #000;
 }
 
 .panel-body {
-  min-height: 65vh;
   max-height: 65vh;
   padding: 10px;
 }
