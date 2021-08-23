@@ -47,7 +47,7 @@ function search_click(id) {
                 "</tr>" +
                 "<tr v-show=\"website\">" +
                 "    <th>Website:</th>" +
-                "    <td><a href=\"//" + value.website + "\">" + value.website + "</a></td>" +
+                "    <td><a href=\"" + value.website + "\">" + value.website + "</a></td>" +
                 "</tr>" +
                 "<tr v-show=\"citations\">" +
                 "    <th>Citations:</th>" +
@@ -151,7 +151,7 @@ function load_profile(id) {
                 "</tr>" +
                 "<tr v-show=\"website\">" +
                 "    <th>Website:</th>" +
-                "    <td><a href=\"//" + value.website + "\">" + value.website + "</a></td>" +
+                "    <td><a href=\"" + value.website + "\">" + value.website + "</a></td>" +
                 "</tr>" +
                 "<tr v-show=\"citations\">" +
                 "    <th>Citations:</th>" +
