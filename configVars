@@ -1,0 +1,4 @@
+DATABASE_URL=postgres://pbzydhhmxxyiyr:09284bfa94ec5a4d88a7afe29a1bdaa81417d2228356b8795b75880a02c576b8@ec2-54-91-188-254.compute-1.amazonaws.com:5432/dfl1pmd3u2cr43
+FLASK_APP=run.py
+LOG_TO_STDOUT=1
+
