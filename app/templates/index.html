@@ -47,7 +47,7 @@
                         {% for cat in categories %}
                         <label for="{{ cat[0] }}">
                             <input id="{{ cat[0] }}" type="checkbox" class="check" onclick="tick_checkbox({{ cat[0] }})" value="0">
-                            <div class="f-button" id="btn_{{ cat[0] }}">
+                            <div class="f-button" title="{{ cat[2] }}" id="btn_{{ cat[0] }}">
                                 <span class style="font-size: 14px; color: {{ cat[1] }}"> <strong>{{ cat[0] }}</strong></span>
                             </div>
                         </label>

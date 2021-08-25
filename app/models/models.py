@@ -43,6 +43,7 @@ class Professor (db.Model):
     name = db.Column(db.String(64), index=True, default="")
     netid = db.Column(db.String(64), primary_key=True)
     department = db.Column(db.String(64), default="")
+    department_full = db.Column(db.String(64), default="")
     department_color = db.Column(db.String(16), default="")
     type = db.Column(db.String(64), default="")
     email = db.Column(db.String(120), default="")
@@ -72,6 +73,7 @@ class Professor (db.Model):
            'name': self.name,
            'type': self.type,
            'department': self.department,
+           'department_full': self.department_full,
            'department_color': self.department_color,
            'email': self.email,
            'website': self.website,

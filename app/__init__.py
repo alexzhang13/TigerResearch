@@ -36,11 +36,13 @@ def init_db(app):
         db.create_all()
 
         dep_to_color = {}
+        dep_to_full = {}
         with open('app/static/assets/files/courses.txt', newline='') as f:
             lines = f.readlines()
             content = [x.split(',') for x in lines] 
             for d2c in content:
                 dep_to_color[d2c[0]] = d2c[1]
+                dep_to_full[d2c[0]] = d2c[2]
 
         with open('app/static/assets/files/data.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
@@ -57,7 +59,7 @@ def init_db(app):
                 if row['citations'] == 'N/a': citations=-1
                 if row['netid']=='N/a': continue
 
-                p = Professor(netid=row['netid'], name=row['name'], department=row['department'], 
+                p = Professor(netid=row['netid'], name=row['name'], department=row['department'], department_full=dep_to_full[row['department']],
                 email=row['netid']+'@princeton.edu', citations=citations, department_color=dep_to_color[row['department']],
                 hindex=h_index, picture=row['picture'], fingerprints=utils.listify_string(row['fingerprints']),
                 projects=utils.listify_string(row['projects']), publications=utils.listify_string(row['research']),
