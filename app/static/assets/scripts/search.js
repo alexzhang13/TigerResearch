@@ -1,4 +1,5 @@
 var progress = null
+var $loading = $('#loadingDiv').hide()
 
 function getFilters() {
     var boxes = document.getElementsByClassName('check');
@@ -44,6 +45,7 @@ function tick_checkbox(button) {
 }
 
 function search_results (search_text, query_string) {
+    $loading.show();
     if (progress) {
         progress.abort();
     }
@@ -77,6 +79,7 @@ function search_results (search_text, query_string) {
             });
             $("#search-results").html(data)
             $("#search-results-num").html(num_results)
+            $loading.hide();
             progress = null;
         }
     });
