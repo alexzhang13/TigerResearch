@@ -28,12 +28,6 @@ def index():
             search = request.args.get("q")
         return render_template("index.html", title='TigerResearch', categories=categories, 
         user=session['username'], search=search)
-    
-    args = request.args
-    categories = utils.listify_file('app/static/assets/files/courses.txt')
-    search=''
-    return render_template("index.html", title='TigerResearch', categories=categories, 
-        user='', search=search)
     return render_template("login.html", title='Login to TigerResearch') 
 
 

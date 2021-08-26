@@ -54,7 +54,7 @@ function display_profile (id) {
                 "    <td>" + (value.citations > 0 ? value.citations : "Unknown") + "</td>" +
                 "</tr>" +
                 "<tr v-show=\"search\">" +
-                "    <th>Want to know more?:</th>" +
+                "    <th>Want to know more?</th>" +
                 "    <td>" + "<a href =\"" + "https://www.google.com/search?q=" + value.name + " princeton\" target=\"_blank\">" + "Click here" + "</a>" + "</td>" +
                 "</tr>" +
                 "</table>" +
