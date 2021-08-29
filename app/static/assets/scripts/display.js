@@ -89,13 +89,13 @@ function display_profile (id) {
                 // coursework
                 "<hr>" +
                 "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Suggested Coursework </h4>" +
-                "<ul class=\"list-group\">" +
+                "<ul class=\"list-group\">"
                 
             value.courses.forEach(function (element) {
                 data += "<li class=\"list-group-item\">" +
                     "<a href=\"//" + "princetoncourses.com/?search=" + element + "\" target=\"_blank\">" + element + "</a>" +
-                    "</li>"
-            })     
+                "</li>"
+            });     
 
             if (value.courses.length <= 0) {
                 data += "<li class=\"list-group-item\"> N/A </li>"
