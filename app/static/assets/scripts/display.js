@@ -97,6 +97,10 @@ function display_profile (id) {
                     "</li>"
             })     
 
+            if (value.courses.length <= 0) {
+                data += "<li class=\"list-group-item\"> N/A </li>"
+            }
+
             // related faculty
             data +=
                 "</ul>" +
