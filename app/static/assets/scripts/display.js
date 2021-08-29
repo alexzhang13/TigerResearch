@@ -90,12 +90,16 @@ function display_profile (id) {
                 "<hr>" +
                 "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Suggested Coursework </h4>" +
                 "<ul class=\"list-group\">" +
-                "    <li class=\"list-group-item\">N/A</li>" +
-                "</ul>"
-
+                
+            value.courses.forEach(function (element) {
+                data += "<li class=\"list-group-item\">" +
+                    "<a href=\"//" + "princetoncourses.com/?search=" + element + "\" target=\"_blank\">" + element + "</a>" +
+                    "</li>"
+            })     
 
             // related faculty
             data +=
+                "</ul>" +
                 "<hr>" +
                 "<h4 class=\"mt-2\"><span class=\"fa fa-clock-o ion-clock float-right\"></span> Related Faculty </h4>" +
                 "<ul class=\"list-group\">"
