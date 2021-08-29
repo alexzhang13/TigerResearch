@@ -17,6 +17,22 @@ def listify_string (text):
         lst.append([res[2*i], res[2*i+1]])
     return lst
 
+def get_courses (text):
+    ''' 
+    This function works for lists of shape (n,1), which works for projects/fingerprints/research
+    '''
+    text = text.replace(', ',',')
+    text = text.replace('\'','')
+    text = text.replace('\"','')
+    text = text.replace('[','')
+    text = text.replace(']','')
+    res = text.split(',')
+
+    lst = []
+    for i in range(len(res)):
+        lst.append(res[i])
+    return lst
+
 def get_keywords (text):
     ''' 
     This function works for lists of shape (n,2), which works for projects/fingerprints/research
